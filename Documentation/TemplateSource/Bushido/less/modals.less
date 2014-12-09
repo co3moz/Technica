@@ -1,0 +1,40 @@
+//
+// Modals
+// --------------------------------------------------
+
+.modal-content {
+  position: relative;
+  background-color: @modal-content-bg;
+  border: none;
+  border-radius: @border-radius-base;
+  box-shadow: none;
+	padding: (@vert-gap/1.5) 25px;
+}
+.modal-header, 
+.modal-body,
+.modal-footer {
+	padding-left: 0;
+	padding-right: 0;
+}
+.modal-header {
+	a {
+		border-bottom: 1px dashed transparent;
+		&:hover {
+			text-decoration: none;
+			color: @link-hover-color;
+			border-bottom: 1px dashed @link-hover-color;
+		}
+	}
+	.close {
+		position: absolute;
+		top: 18px;
+		right: 18px;
+		font-size: 1.125em;
+		color: @brand-primary;
+		.opacity(1, 100);
+		.transition(opacity, 0.3s);
+		&:hover { .opacity(0.7, 70); }
+		&:focus { outline: 0; }
+		&:active { outline: 0; }
+	}
+}

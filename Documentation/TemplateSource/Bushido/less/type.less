@@ -1,0 +1,131 @@
+//
+// Typography
+// --------------------------------------------------
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: @headings-font-family;
+  line-height: @headings-line-height;
+  color: @text-color;
+}
+h1, .h1, h2, .h2, h3, .h3 {
+	font-weight: 300;
+}
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin-top: floor((@vert-gap / 3));
+  margin-bottom: @vert-gap;
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-weight: 400;
+  margin-top: 0;
+  margin-bottom: floor((@vert-gap/2));
+}
+h1, .h1 { font-size: @font-size-h1; }
+h2, .h2 { font-size: @font-size-h2; }
+h3, .h3 { font-size: @font-size-h3; }
+h4, .h4 { font-size: @font-size-h4; }
+h5, .h5 { font-size: @font-size-h5; }
+h6, .h6 { font-size: @font-size-h6; }
+.bold { font-weight: bold !important; }
+h2, .h2 {
+	&.extra-bold {
+		font-size: (@font-size-base*3);
+		font-weight: bold;
+		margin-bottom: (@vert-gap*1.5);
+	}
+}
+
+// Paragraphs
+// -------------------------
+p {
+	.paragraph-1();
+	&.large {
+		font-size: @font-size-large;
+	}
+}
+.p-style2 {
+	.paragraph-2();
+}
+.p-style3 {
+	.paragraph-3();
+}
+
+// Text Colors Variations
+// -------------------------
+.light-color {
+	color: #fff !important;
+}
+.primary-color, .text-primary {
+	color: @brand-primary !important;
+}
+.gray-color {
+	color: @gray !important;
+}
+.text-success {
+	color: @brand-success !important;
+}
+.text-info {
+	color: @brand-info !important;
+}
+.text-danger {
+	color: @brand-danger !important;
+}
+.text-warning {
+	color: @brand-warning !important;
+}
+.text-muted {
+	color: @brand-muted !important;
+}
+
+// Font Variations
+// -------------------------
+.thin-weight {
+	font-weight: 100 !important;
+}
+.light-weight {
+	font-weight: 300 !important;
+}
+.uppercase {
+	text-transform: uppercase !important;
+}
+
+// Links
+// -------------------------
+a {
+	text-decoration: none;
+	color: @link-color;
+	.transition(all, 0.3s);
+	&.large {
+		font-size: @font-size-large;
+	}
+}
+a:hover, a:focus {
+	outline: 0;
+	text-decoration: underline;
+	color: @link-color;
+}
+a:focus {
+	text-decoration: none;
+}
+
+// Lists
+// -------------------------
+ul, ol {
+	.list-1();
+	&.large {
+		font-size: @font-size-large;
+	}
+}
+.ul-style2, .ol-style2 {
+	.list-2();
+}
+.ul-style3, .ol-style3 {
+	.list-3();
+}

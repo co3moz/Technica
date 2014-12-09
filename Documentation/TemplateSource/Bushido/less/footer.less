@@ -1,0 +1,84 @@
+//
+// Footer
+// --------------------------------------------------
+
+.footer {
+	background: @footer-bg;
+	width: 100%;
+	color: #fff;
+	padding: (@vert-gap*2.5) 0 (@vert-gap/1.5) 0;
+	.info {
+		width: 100%;
+		max-width: 390px;
+	}
+	.logo {
+		display: block;
+		text-decoration: none;
+		width: 100%;
+		padding-bottom: @vert-gap;
+		margin-bottom: @vert-gap;
+		border-bottom: 2px solid @brand-success;
+		img {
+			width: 100%;
+			max-width: 195px;
+			height: auto;
+		}
+	}
+	p {
+		.paragraph-2();
+	}
+	.social {
+		a {
+			display: inline-block;
+			margin-right: 16px;
+			font-size: 1.5em;
+			line-height: 1;
+			color: #fff;
+			text-decoration: none;
+			margin-bottom: @vert-gap;
+			.opacity(1, 100);
+			.transition(all, 0.3s);
+			&:hover {
+				.opacity(0.7, 70);
+			}
+		}
+	}
+	.copyright {
+		width: 100%;
+		border-top: 2px solid @brand-success;
+		padding-top: @vert-gap;
+		a {
+			color: #fff;
+			.opacity(1, 100);
+			.transition(all, 0.3s);
+			&:hover {
+				.opacity(0.7, 70);
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+		p { margin-bottom: 0; }
+	}
+	.payment {
+		text-align: right;
+		img {
+			display: inline-block;
+			width: 100%;
+			max-width: 40px;
+			margin-left: 6px;
+		}
+	}
+	h1, h2, h3, h4, h5, h6 { color: #fff; }
+	.contacts p {
+		line-height: @line-height-md;
+	}
+	ul, ol { .list-3(); }
+	
+	@media @tablet-port {
+		text-align: center; 
+		.info { max-width: 100%; }
+		.logo img { margin: auto; }
+		.contacts { margin-top: @vert-gap; }
+		.payment { text-align: center; margin-top: (@vert-gap/1.5) }
+	}
+}

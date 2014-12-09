@@ -1,0 +1,464 @@
+<!DOCTYPE html>         
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bushido v1.0 User Guide</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+  </head>
+
+	<!--Body-->
+  <body>
+  	
+    <!--Wrapper for Pushing Footer-->
+    <div class="wrapper">
+    
+      <!--Header-->
+      <div class="header">
+        <div class="container">
+        	<a class="logo" href="http://8guild.com" target="_blank"><img src="img/logo.png" alt="8 Guild"/></a>
+          <div class="heading">
+            <h1 class="normal">Bushido HTML5 E-Commerce Template V1.1</h1>
+            <h3>Modern Responsive E-Commerce Template for Tech Geeks</h3>
+            <h5>Created for You by <a href="http://8guild.com" target="_blank">8Guild</a></h5>
+          </div>
+        </div>
+      </div><!--Close Header-->
+      
+      <div class="container content">
+      
+        <div class="tabs">
+          <ul class="tabs-links">
+            <li><a href="#Introduction">Introduction</a></li>
+            <li><a href="#FoldersFiles">Folders and Files</a></li>
+            <li><a href="#EditHTML">Customizing Template<br/>(Editing HTML Files)</a></li>
+            <li><a href="#EditCSS">Changing Look and Feel<br/>(Editing LESS Files)</a></li>
+            <li><a href="#setupForm">Setting Up Contact Form</a></li>
+            <li><a href="#Plugins">jQuery Plugins<br/>(Editing JS Files)</a></li>
+            <li><a href="#mslider">Master Slider - Premium Plugin</a></li>
+            <li><a href="#Photoshop">Photoshop Files</a></li>
+            <li><a href="#Credits">Sources and Credits</a></li>
+          </ul>
+          <div class="tabs-panes">
+          
+            <!--Tabs Pane-->
+            <div id="Introduction" class="tabs-pane">
+              <h2>Introduction</h2>
+              <img src="img/screenshots/intro.jpg" alt="Introduction"/>
+              <p class="justify"><strong>Bushido</strong> is highly customizable and technological HTML5 e-commerce template.</p>
+              <p>Lots of components, widgets and pre-built page variations along with great premium slider makes it perfect solution for those who want to run online retail business.</p>
+              <p>Template is built with LESS and has the modular structure so you will easily compose new pages and make necessary adjustments.</p>
+              <h3>Pages included:</h3>
+              <div class="group">
+              	<div style="width:30%; float:left;">
+                  <h4>Home pages:</h4>
+                  <ul>
+                    <li>Home - Slideshow</li>
+                    <li>Home - Fullscreen Slider</li>
+                    <li>Home - Product Showcase</li>
+                    <li>Home - Categories Slider</li>
+                    <li>Home - Special Offers</li>
+                  </ul>
+                  <h4>Blog pages:</h4>
+                  <ul>
+                    <li>Blog - Sidebar Left</li>
+                    <li>Blog - Sidebar Right</li>
+                    <li>Blog - Single Post</li>
+                  </ul>
+                </div>
+              	<div style="width:30%; float:left;">
+                  <h4>Shop pages:</h4>
+                  <ul>
+                    <li>Shop - Filters Left 3 Cols</li>
+                    <li>Shop - Filters Left 2 Cols</li>
+                    <li>Shop - Filters Right 3 Cols</li>
+                    <li>Shop - Filters Right 2 Cols</li>
+                    <li>Shop - No Filters 4 Cols</li>
+                    <li>Shop - No Filters 3 Cols</li>
+                    <li>Shop - Single Item Vers 1</li>
+                    <li>Shop - Single Item Vers 2</li>
+                    <li>Shopping Cart</li>
+                    <li>Checkout Page</li>
+                    <li>Wishlist</li>
+                  </ul>
+                </div>
+              	<div style="width:30%; float:left;">
+                  <h4>Other pages:</h4>
+                  <ul>
+                    <li>Login / Registration</li>
+                    <li>Account: Personal Info</li>
+                    <li>Account: Addresses</li>
+                    <li>Orders History</li>
+                    <li>Order Tracking</li>
+                    <li>Delivery Info</li>
+                    <li>About Us</li>
+                    <li>Contacts</li>
+                    <li>Coming Soon</li>
+                    <li>404 Page</li>
+                    <li>Support Page</li>
+                    <li>Components &amp; Styles</li>
+                  </ul>
+                </div>
+              </div>
+            </div><!--/Tabs Pane-->
+          
+            <!--Tabs Pane-->
+            <div id="FoldersFiles" class="tabs-pane">
+              <h2>Folders and Files</h2>
+              <table width="100%" border="1">
+                <tr>
+                  <th scope="col">File Path</th>
+                  <th scope="col">Description</th>
+                </tr>
+                <tr>
+                  <td>Main</td>
+                  <td>Root folder</td>
+                </tr>
+                <tr>
+                  <td>Main/PSD</td>
+                  <td>
+                  	PSD Folder includes all .psd files, <span class="underline">which are:</span><br/>
+                    Home.psd - Layered psd file of Home pages with all components and widgets;<br/>
+                    Shop.psd - Layered psd file of Catalog pages (tiles, filters, product gallery, etc.);<br/>
+                    Blog.psd - Layered psd file of Blog pages (list of posts, single post).<br/>
+                    Pages.psd - Layered psd file of secondary and specialty pages (login, registration, about, contacts, coming soon, 404).<br/>
+                    Menu.psd - Layered psd file of the Header and Main Navigation in all states.<br/>
+                    Update v1.1.psd - Layered psd file with new elements from v1.1.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido</td>
+                  <td>This folder includes all HTML, CSS, Javascript, Fonts and Image files of the template.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/index.html</td>
+                  <td>This is the Home Page with basic Slideshow.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/home-fullscreen.html</td>
+                  <td>This is the Home Page with Fullscreen Slider.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/home-showcase.html</td>
+                  <td>This is the Product Showcase Home Page with Parallax.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/home-categories.html</td>
+                  <td>This is the Home Page with Categories Slider.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/home-offers.html</td>
+                  <td>This is the Home Page with Special Offers Tabs.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/css</td>
+                  <td>This folder includes compiled and compressed version of CSS style.css.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/css/colors</td>
+                  <td>This folder holds all .css files with different color schemes. Each file has a color scheme version in it's name.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/less</td>
+                  <td>This folder includes all source .less (including Bootstrap less) files from which compiled style.css.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/js</td>
+                  <td>This folder includes all .js files. To edit Javascript functionality of the template you need to modify files: scripts.js for the Home and Secondary pages of the Template, coming-soon.js for Coming Soon page and 404.js for 404 Page respectively. It also includes 2 subfolders: libs and plugins</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/js/libs</td>
+                  <td>This folder includes all JavaScript Libraries files like jQuery.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/js/plugins</td>
+                  <td>This folder includes all jQuery Plugins used in this template.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/masterslider</td>
+                  <td>This folder includes all styles of premium slider called MasterSlider.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/img</td>
+                  <td>This folder includes all graphic assets of the template. When you need to change images, slides, backgrounds, etc..this is the place to go.</td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/fonts</td>
+                  <td>This folder includes IcoMoon and Font Awsome generated Fonts. They are  iconic fonts, that gives you customizable vector icons (more than 500 icons). For more information on how it works, please visit: <a href="http://icomoon.io/">IcoMoon Official Website</a> and <a href="http://fontawesome.io/">Font Awsome Official Website</a></td>
+                </tr>
+                <tr>
+                  <td>Main/Bushido/mailer</td>
+                  <td>This folder holds all .php and .js files for Ajax Contact Form.</td>
+                </tr>
+              </table>
+            </div><!--Close Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="EditHTML" class="tabs-pane">
+              <h2>Customizing Template (Editing HTML Files)</h2>
+              <h3>HTML Structure (Landing Page)</h3>
+              <p>HTML Code devided into sections that are represented by <strong>&lt;section&gt;</strong> tag. Each section is a block of content. Thus, if you want to change content of Catalog Grid of Tiles you do it in section with <strong>class=&#34;catalog-grid&#34;</strong>. Document is properly commented so you won't get lost. 
+              
+              <h3>Editing Menu</h3>
+              <p>To edit Menu you need to find code block called <strong>"&lt;!--Main Menu--&gt;"</strong> in any HTML file</strong>.</p>
+              <p>Note 2 important classes <strong>"has-submenu"</strong> applied to &lt;li&gt; element and <strong>"submenu"</strong>. This for propper work of dropdowns.</p>
+              <img src="img/screenshots/menu.png" alt="Menu"/>
+              
+              <h3>Replacing Images and Slides (Hero Slider)</h3>
+              <p>To change images in the Hero Slider you need to go to <strong>Bushido / img / hero / slideshow</strong></p>
+              <p>To add/remove/edit content of the slides you need to edit HTML code below. Each slide represented by <strong>&lt;div class="ms-slide"&gt;</strong> tag. <strong>data-delay</strong> attributes represents the delay between each individual slide transition.</p>
+              <img src="img/screenshots/slider.png" alt="Slider"/>
+              
+              <h3>Setting Price Range in Catalog Filter Slider</h3>
+              <p>Setting Min and Max values can be done through HTML data attributes. See the code below:</p>
+              <img src="img/screenshots/slider_range.png" alt="Price Slider Range"/>
+              
+              <h3>Removing Parallax effect</h3>
+              <p>If you do not need parallax effect on images simply remove <strong>"parallax" class from &lt;body&gt; tag</strong>.</p>
+              
+              <h3>Editing Content in Other Blocks</h3>
+              <p>To change images, texts and other content in chosen content block you need to find section with appropriate <strong>"class"</strong> attribute. 
+              <p>For example, to edit content of the <strong>"Brands Carousel Widget"</strong> go to section with <strong>class="brand-carousel"</strong>. If you need simply replace the images but retain content structure as it is you can do that in folder: <strong>Bushido / img / brands</strong>.</p>
+              <h3>Changing Social Icons</h3>
+              <p>In this template we used FontAwesome font for social icons. It is Font icons which means you can easily change them by replacing <strong>fa fa-iconName class.</strong></p>
+              <p>For the full list of possible icon classes please visit:<br/><a href="http://fontawesome.io/icons/" target="_blank">http://fontawesome.io/icons/</a> - FontAwsome icons</p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="EditCSS" class="tabs-pane">
+              <h2>Changing Look and Feel (Editing LESS Files)</h2>
+              <h3>Setting Up LESS Environment</h3>
+              <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow variables, mixins, functions and many other techniques that allow you to make CSS that is more maintainable, themable and extendable.</p>
+              <p><strong>For more information visit <a href="http://lesscss.org/" target="_blank">LESS official website</a>.</strong></p>
+              <p>For compiling LESS file into CSS we used software called <strong>"Prepros"</strong>. Visit it's website at <a href="http://alphapixels.com/prepros/" target="_blank">http://alphapixels.com/prepros/</a></p>
+              <img src="img/screenshots/prepros.png" alt="Prepros"/>
+              
+              <h3>LESS Files Structure</h3>
+              <table width="100%" border="1">
+                <tr>
+                  <th scope="col">LESS File Name</th>
+                  <th scope="col">Elements Inside</th>
+                </tr>
+                <tr>
+                  <td>bootstrap folder</td>
+                  <td>All Bootstrap framework .less file.</td>
+                </tr>
+                <tr>
+                  <td>colors folder</td>
+                  <td>Colores.less file - for generating different color schemes.</td>
+                </tr>
+                <tr>
+                  <td>font-awesome folder</td>
+                  <td>FontAwesome icons .less files.</td>
+                </tr>
+                <tr>
+                  <td>lightGallery</td>
+                  <td>lightGallery plugin .less files.</td>
+                </tr>
+                <tr>
+                  <td>nouislider</td>
+                  <td>nouislider plugin .less files.</td>
+                </tr>
+                <tr>
+                  <td>outlined-iconset</td>
+                  <td>Outlined icons font .less files.</td>
+                </tr>
+                <tr>
+                  <td>variables.less</td>
+                  <td>File that holds all variables. There you can globally change colors, font-sizes, margins, paddings, etc...</td>
+                </tr>
+                <tr>
+                  <td>scaffolding.less</td>
+                  <td>Body styles, utility classes, page container.</td>
+                </tr>
+                <tr>
+                  <td>types.less</td>
+                  <td>Headings, paragraphs, lists, links, blockquotes styles, etc...</td>
+                </tr>
+                <tr>
+                  <td>header.less</td>
+                  <td>Header styles.</td>
+                </tr>
+                <tr>
+                  <td>footer.less</td>
+                  <td>Footer styles.</td>
+                </tr>
+                <tr>
+                  <td>navi.less</td>
+                  <td>Main navigation (menu) styles including collapsed state.</td>
+                </tr>
+                <tr>
+                  <td>buttons.less</td>
+                  <td>Buttons styles (normal and outlined buttons).</td>
+                </tr>
+                <tr>
+                  <td>forms.less</td>
+                  <td>Form elements styles</td>
+                </tr>
+                <tr>
+                  <td>mixins.less</td>
+                  <td>Mixins mix properties from existing styles.</td>
+                </tr>
+                <tr>
+                  <td>home.less</td>
+                  <td>Styles of all elements of Home pages: hero slider, hero static, fullwidth image blocks, category tiles, categories slider, offer tabs, feature tabs, info blocks.</td>
+                </tr>
+                <tr>
+                  <td>shop.less</td>
+                  <td>Styles include: catalog grid / tiles, product gallery, shop filters, shopping cart, wishlist, tech specs styles.</td>
+                </tr>
+                <tr>
+                  <td>blog.less</td>
+                  <td>Styles of Blog pages (post, post open, sidebar)</td>
+                </tr>
+                <tr>
+                  <td>pages.less</td>
+                  <td>Secondary pages styles: about, coming soon, 404, registration, contacts, support.</td>
+                </tr>
+                <tr>
+                  <td>modals.less</td>
+                  <td>Modal dialog styles.</td>
+                </tr>
+                <tr>
+                  <td>widgets.less</td>
+                  <td>Styles of all widgets: tabs widget, media links, posts twitter widget, subscription widget, gallery widget, brands carousel, testimonials widget, breadcrumbs, pagination, sticky buttons, popovers, expandable panels, accordion widget, contact info widget, sidebar search widget, countdown widget.</td>
+                </tr>
+              </table>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="setupForm" class="tabs-pane">
+              <h2>Setting Up Contact Form</h2>
+              <p>The new version of Bushido features Ajax Contact Form that will send emails to specified by you email address. The only thing you have to do is to go to <strong>Bushido/mailer</strong> folder find file called <strong>config.ini</strong>, open it in text editor change email addres to your own and default subject (optionally). That&#39;s it!</p>
+              <p><strong>Please note the form will not work in local environment you have to upload your site to server.</strong></p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="Plugins" class="tabs-pane">
+              <h2>jQuery Plugins (Editing JS Files)</h2>
+              <h3>Plugins Used</h3>
+              <p>While creating this template we used some Javascript (jQuery) plugins to extend its functionality:<strong>*</strong></p>
+              <p><strong><a href="http://jquery.com/" target="_blank">jQuery v1.10.2</a></strong> - most popular feature-rich JavaScript library.</p>
+              <p><strong><a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">jQuery Easing v1.3</a></strong> - add-on for jQuery to create nice easing effects.</p>
+              <p><strong><a href="http://modernizr.com/" target="_blank">Modernizr</a></strong> - JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</p>
+              <p><strong><a href="https://github.com/scottjehl/Respond" target="_blank">Respong.js</a></strong> - script enables responsive web designs in browsers that don't support CSS3 Media Queries - in particular, Internet Explorer 8 and under.</p>
+              <p><strong><a href="http://labs.rampinteractive.co.uk/touchSwipe/demos/" target="_blank">TouchSwipe</a></strong> - Plugin that enables touch/swipe functionality on mobile devices.</p>
+              <p><strong><a href="http://codecanyon.net/item/master-slider-responsive-touch-swipe-slider/6337671?WT.ac=search_item&WT.oss_phrase=master%20slider&WT.oss_rank=2&WT.z_author=averta" target="_blank">Master Slider</a></strong> - Responsive Premium Touch Swipe Slider</p>
+              <p><strong><a href="http://fronteed.com/iCheck/" target="_blank">iCheck</a></strong> - Customized Checkboxes and Radio Buttons for jQuery.</p>
+              <p><strong><a href="http://jqueryvalidation.org/" target="_blank">jQuery Validate</a></strong> -  Clientside Form Validation Plugin.</p>
+              <p><strong><a href="http://www.owlgraphic.com/owlcarousel/" target="_blank">OWL Carousel</a></strong> -  Responsive touch enabled jQuery carousel slider.</p>
+              <p><strong><a href="http://vestride.github.io/Shuffle/" target="_blank">Shuffle</a></strong> -  jQuery plugin for categorizing, sorting, and filtering a responsive grid of items.</p>
+              <p><strong><a href="http://sachinchoolur.github.io/lightGallery/" target="_blank">jQuery lightGallery</a></strong> -  lightweight jQuery lightbox gallery for displaying image and video.</p>
+              <p><strong><a href="http://markdalgleish.com/projects/stellar.js/" target="_blank">Stellar.js</a></strong> -  jQuery plugin for creating Parallax effect.</p>
+              <p><strong><a href="http://hilios.github.io/jQuery.countdown/" target="_blank">The Final Countdown</a></strong> - A simple and html agnostic date countdown plugin for jQuery.</p>
+              <p><strong>*</strong>To get more detailed information about how to use / customize these plugins please visit their official websites.</p>
+              <p><strong>Please be informed that we DO NOT provide support to any third party plugin's. We can only answer simple usage questions or issues related to incompatibility with the template.</strong></p>
+              
+              <h3>Editing Hero Slider / Fullscreen version / Category Slider</h3>
+              <p>In order to customize behaviour of Hero Sliders seen in Home pages you need to go to <strong>scripts.js</strong> file and change options (marked in red) in the code below:</p>
+              <img src="img/screenshots/slider_js.png" alt="Hero Slider"/>
+              <p>Find <strong>Category Slider</strong> options in the same <strong>scripts.js</strong> line #318.</p>
+              <p><strong>For more details please see <a href="masterslider/index.html" target="_blank">Master Slider Documentation</a>.</strong></p>
+              
+              <h3>Setting Time/Time Format for Countdown (Coming Soon Page)</h3>
+              <p>If you want to set time Countdown clock in your coming soon page you need to go to <strong>main / Bushido / js / coming-soon.js</strong> to section called "Countdown" (line#10) and edit lines in bold.</p>
+              <pre><code>
+                <span class="html-comment">/*Countdown*/</span>
+              	$('#timer').countdown(<strong>'2014/10/03'</strong>, function(event) {
+                  $(this).html(event.strftime(<strong>'%D:%H:%M:%S'</strong>));
+                  <span class="html-comment">/*Time Format String where: %D - days; %H - hours; %M - minutes; %S - seconds.*/</span>
+                });
+              </code></pre>
+              <h3>Editing Other JS Files</h3>
+              <p>Like with HTML and CSS files to customize the JavaScript functionality of the template you need to edit <strong>scripts.js file for Home and Secondary pages</strong>, <strong>coming-soon.js file for Coming Soon page</strong>, <strong>404.js file for 404 error page</strong>.</p>
+              <p>These files holding all custom JavaScript code for the template. They are properly commented so you easily find nesessary code snippet to modify.</p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="Photoshop" class="tabs-pane">
+              <h2>Photoshop Files</h2>
+              <p>All Photoshop files related to this template you will find in the <strong>PSD folder</strong>.</p>
+              <p class="underline">There are 6 .psd files:</p>
+              <p>PSD Folder includes all .psd files, <span class="underline">which are:</span></p>
+              <p><strong>Home.psd</strong> - Layered psd file of Home pages with all components and widgets;</p>
+              <p><strong>Shop.psd</strong> - Layered psd file of Catalog pages (tiles, filters, product gallery, etc.);</p>
+              <p><strong>Blog.psd</strong> - Layered psd file of Blog pages (list of posts, single post).</p>
+              <p><strong>Pages.psd</strong> - Layered psd file of secondary and specialty pages (login, registration, about, contacts, coming soon, 404).</p>
+              <p><strong>Menu.psd</strong> - Layered psd file of the Header and Main Navigation in all states.</p>
+              <p><strong>Update v1.1.psd</strong> - Layered psd file with new elements from v1.1.</p>
+              
+              <h3>Photoshop Layers</h3>
+              <p>All layers are grouped and named according to content blocks of the template. So it will be easy to spot the neccessary piece of graphics.</p>
+              <img src="img/screenshots/ps_layers.png" alt="Photoshop Layers"/>
+              <p>To learn more about how to use Photoshop to edit images and graphics we recommend <a href="http://tv.adobe.com/videos/photoshop/" target="_blank"><strong>Photoshop on Adobe TV</strong></a></p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="mslider" class="tabs-pane">
+              <h2>Master Slider Documentation</h2>
+              <p>You can find separate detailed Master Slider documentation in the same directory as this help file in the folder called <strong>masterslider</strong>.</p> 
+              <p>Here is the direct link: <a href="masterslider/index.html">Master Slider Documentation</a></p>
+              <p>If you need support regarding this plugin please visit the <a href="http://codecanyon.net/user/averta?WT.ac=item_profile_text&WT.z_author=averta" target="_blank">Author Profile page on CodeCanyon</a>.</p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="Credits" class="tabs-pane">
+              <h2>Sources and Credits</h2>
+              <p>While making this theme we used third party plugins, images, icons, fonts, etc... and want to thank their creators:</p>
+              <ul>
+              	<li>Pictures (Press Kits used in Demo), icons:<br/>
+                	<a href="http://freebiesbug.com/psd-freebies/150-free-outlined-icons-psd-ai-svg-webfont/" target="_blank">http://freebiesbug.com/psd-freebies/150-free-outlined-icons-psd-ai-svg-webfont/</a><br/>
+                	<a href="http://unsplash.com" target="_blank">http://unsplash.com</a><br/>
+                  <a href="http://www.nikonusa.com/en/About-Nikon/Press-Room/Photo-Gallery/" target="_blank">http://www.nikonusa.com/en/About-Nikon/Press-Room/Photo-Gallery/</a><br/>
+                	<a href="https://nest.com/press/#product-images" target="_blank">https://nest.com/press/#product-images</a><br/>
+                	<a href="http://logbar.jp/press/" target="_blank">http://logbar.jp/press/</a><br/>
+                  <a href="http://www-03.ibm.com/systems/z/hardware/zenterprise/zec12.html" target="_blank">http://www-03.ibm.com/systems/z/hardware/zenterprise/zec12.html</a><br/>
+                	<a href="http://centralstandardtiming.com/" target="_blank">http://centralstandardtiming.com/</a><br/>
+                </li>
+              	<li>IcoMoon icons <a href="http://icomoon.io/" target="_blank">http://icomoon.io/</a></li>
+              	<li>FontAwsome icons <a href="http://fontawesome.io/" target="_blank">http://fontawesome.io</a></li>
+              	<li>Bootstrap 3.0 <a href="http://getbootstrap.com/" target="_blank">http://getbootstrap.com/</a></li>
+              	<li>jQuery Library <a href="http://jquery.com/" target="_blank">http://jquery.com</a></li>
+              	<li>jQuery Easing Plugin <a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">http://gsgd.co.uk/sandbox/jquery/easing</a></li>
+              	<li>Modernizr <a href="http://modernizr.com/" target="_blank">http://modernizr.com</a></li>
+              	<li>Respong.js <a href="https://github.com/scottjehl/Respond" target="_blank">https://github.com/scottjehl/Respond</a></li>
+              	<li>jQuery touchSwipe <a href="http://labs.rampinteractive.co.uk/touchSwipe/demos/" target="_blank">http://labs.rampinteractive.co.uk/touchSwipe/demos/</a></li>
+              	<li>jQuery Validation <a href="http://jqueryvalidation.org/" target="_blank">http://jqueryvalidation.org/</a></li>
+                <li>iCheck <a href="http://fronteed.com/iCheck/" target="_blank">http://fronteed.com/iCheck/</a></li>
+                <li>jQuery Placeholder <a href="https://github.com/mathiasbynens/jquery-placeholder" target="_blank">https://github.com/mathiasbynens/jquery-placeholder</a></li>
+                <li>Master Slider <a href="http://www.masterslider.com/" target="_blank">http://www.masterslider.com/</a></li>
+                <li>noUiSlider <a href="http://refreshless.com/nouislider/" target="_blank">http://refreshless.com/nouislider/</a></li>
+                <li>OWL Carousel <a href="http://www.owlgraphic.com/owlcarousel/" target="_blank">http://www.owlgraphic.com/owlcarousel/</a></li>
+                <li>Shuffle <a href="http://vestride.github.io/Shuffle/" target="_blank">http://vestride.github.io/Shuffle/</a></li>
+                <li>jQuery lightGallery <a href="http://sachinchoolur.github.io/lightGallery/" target="_blank">http://sachinchoolur.github.io/lightGallery/</a></li>
+                <li>Stellar.js <a href="http://markdalgleish.com/projects/stellar.js/" target="_blank">http://markdalgleish.com/projects/stellar.js/</a></li>
+                <li>jQuery Countdown <a href="http://hilios.github.io/jQuery.countdown/" target="_blank">http://hilios.github.io/jQuery.countdown/</a></li>
+              </ul>
+              <p><strong>Exept for Master Slider which is premium plugin from CodeCanyon all the third-party assets used in this template are free for personal and commercial use.</strong></p>
+            </div><!--/Tabs Pane-->
+            
+          </div><!-- Close all Panes -->
+        </div>
+      </div><!-- Close Container -->
+    
+    </div><!--Close Wrapper-->
+    
+    <!--Footer-->
+    <div class="footer">
+      <div class="container">
+        <div class="support-message">
+          <p>Dear User, thank you for purchasing our template!  If you have any questions that are beyond the scope of this help file, please feel free to email us using the link below.</p>
+          <a class="normal" href="mailto:support@8guild.com">support@8guild.com</a>
+        </div>
+          <div class="copyright">&copy; 2014 8 Guild. All Rights Reserved.</div>
+      </div>
+    </div><!--Close Footer-->
+  
+  </body><!--Close Body-->
+  
+  <!--Javascript-->
+	<script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+  
+</html>

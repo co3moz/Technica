@@ -1,0 +1,229 @@
+//
+// Forms
+// --------------------------------------------------
+
+label {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 300;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: @input-height-base;
+  padding: @padding-base-vertical @padding-base-horizontal;
+  font-size: @font-size-base;
+	font-weight: 300;
+  line-height: @line-height-base;
+  color: @input-color;
+  background: transparent;
+  border: 1px solid @input-border;
+  border-radius: @input-border-radius;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+	
+  // Customize the `:focus` state 
+  .form-control-focus(@input-border);
+
+  // Placeholder
+  .placeholder();
+
+  // Disabled and read-only inputs
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    background: none;
+		border: 1px solid @brand-muted;
+  }
+}
+.form-group {
+	margin-bottom: @vert-gap;
+}
+.input-sm {
+	height: @input-height-sm;
+	font-size: @font-size-small;
+}
+.input-lg {
+}
+.help-link {
+	display: inline-block;
+	float: right;
+	font-size: @font-size-small;
+	margin-top: (@vert-gap/2);
+	margin-bottom: -(@vert-gap/2);
+}
+
+// Checkboxes and Radios
+// --------------------------------------------------
+.checkbox, .radio {
+	padding-left: 0px;
+	margin-bottom: (@vert-gap/2);
+	span {
+		display: block;
+		float: left;
+		margin-top: -7px;
+		margin-right: 10px;
+		font-size: @font-size-h3;
+	}
+	&:after {
+		visibility: hidden;
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+	label {
+		display: inline-block;
+		vertical-align: middle;
+		font-weight: 300;
+	}
+	.icheckbox,
+	.iradio {
+		display: block;
+		float: left;
+		*display: inline;
+		margin: 4px 9px 0 0;
+		padding: 0;
+		width: 14px;
+		height: 14px;
+		border: none;
+		cursor: pointer;
+	}
+	.icheckbox {
+		background: url(../img/forms/checkbox.png) no-repeat 0px 0px;
+	}
+	.iradio {
+		background: url(../img/forms/radio.png) no-repeat 0px 0px;
+	}
+	.icheckbox.checked,
+	.iradio.checked {
+		background-position: 0px -14px;
+	}
+	.checkbox.disabled label, 
+	.radio.disabled label {
+		cursor: default;
+		color: @brand-muted;
+	}
+	.icheckbox.disabled,
+	.iradio.disabled {
+		background-position: 0px 0px;
+		.opacity(0.5, 5);
+		cursor: default;
+	}
+	.icheckbox.checked.disabled,
+	.iradio.checked.disabled {
+		background-position: 0px -14px;
+		.opacity(0.5, 5);
+		cursor: default;
+	}
+	&.light {
+		label { color: #fff; }
+		.icheckbox {
+			background: url(../img/forms/checkbox-light.png) no-repeat 0px 0px;
+		}
+		.iradio {
+			background: url(../img/forms/radio-light.png) no-repeat 0px 0px;
+		}
+		.icheckbox.checked,
+		.iradio.checked {
+			background-position: 0px -14px;
+		}
+		.checkbox.disabled label, 
+		.radio.disabled label {
+			cursor: default;
+			color: @brand-muted;
+		}
+		.icheckbox.disabled,
+		.iradio.disabled {
+			background-position: 0px 0px;
+			.opacity(0.5, 5);
+			cursor: default;
+		}
+		.icheckbox.checked.disabled,
+		.iradio.checked.disabled {
+			background-position: 0px -14px;
+			.opacity(0.5, 5);
+			cursor: default;
+		}
+	}
+}
+
+// Validation styles
+// --------------------------------------------------
+input.error,
+textarea.error {
+	border-color: @brand-danger !important;
+  -webkit-box-shadow: 0px 0px 0px 1px @brand-danger !important;
+  -moz-box-shadow: 0px 0px 0px 1px @brand-danger !important;
+  box-shadow: 0px 0px 0px 1px @brand-danger !important;
+}
+label.error {
+	display: none !important;
+}
+.response-holder {
+  max-height: 0px;
+  overflow: hidden;
+	font-size: @font-size-small;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+	.inner {
+		border: 3px solid transparent;
+		padding: 12px 16px;
+		margin-bottom: @vert-gap;
+		.border-radius();
+	}
+	&.error {
+		max-height: 300px;
+		.inner {
+			color: @brand-danger;
+			border: 2px solid @brand-danger;
+		}
+	}
+	&.success {
+		max-height: 300px;
+		.inner {
+			color: @brand-success;
+			border: 2px solid @brand-success;
+		}
+	}
+}
+
+// Selects
+// --------------------------------------------------
+.select-style {
+	position: relative;
+	border: 1px solid @brand-primary;
+	width: 100%;
+	.border-radius();
+	background: #fff;
+	&:after {
+		position: absolute;
+		background: #fff;
+		top: 50%;
+		width: 26px;
+		text-align: center;
+		right: 8px;
+		color: @brand-primary;
+		font-size: 1.5em;
+		line-height: 1;
+		margin-top: -12px; 
+		font-family: FontAwesome;
+		content: "\f107";
+	}
+}
+.select-style select {
+	padding: 10px;
+	height: 44px;
+	width: 100%;
+	font-weight: 300;
+	border: none;
+	box-shadow: none;
+	background: transparent;
+	background-image: none;
+	-webkit-appearance: none;
+}
+.select-style select:focus {
+	outline: none;
+}

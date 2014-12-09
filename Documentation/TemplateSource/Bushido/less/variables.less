@@ -1,0 +1,149 @@
+//
+// Variables
+// ---------------------------------------------------
+
+//-- Colors
+//----------------------------------------------------
+@gray-darker:            lighten(#000, 13.5%); // #222
+@gray-dark:              lighten(#000, 20%);   // #333
+@gray:                   lighten(#000, 33.5%); // #555
+@gray-light:             lighten(#000, 55%);   // #8c8c8c
+@gray-lighter:           lighten(#000, 90%); // #e6e6e6
+
+@brand-default: 				#2f343b;
+@brand-primary:         #2ba8db;
+@brand-success:         #a3c756;
+@brand-info:            #5fa9dd;
+@brand-warning:         #fee96a;
+@brand-danger:          #ff6f69;
+@brand-muted:           #b2b2b2;
+
+//-- Scaffolding 
+//## Background color and global text-color on <body>
+@body-bg:               #fff;
+@text-color:            @brand-default;
+
+//-- Global textual link color
+//------------------------------------------------
+@link-color:            @brand-primary;
+@link-hover-color:      darken(@link-color, 10%);
+
+//-- Vertical gap, line height
+//---------------------------------
+@vert-gap:									24px;
+@line-height-lg:         		2.5;
+@line-height-md:						2.25;
+@line-height-sm:						1.7;
+
+//== Typography
+//----------------------------------------------------------------
+
+@font-family-sans-serif:  "Roboto", Helvetica, Arial, sans-serif;
+
+@font-size-base:          1em;
+@font-size-large:         1.125em;
+@font-size-small:         0.875em;
+
+@font-size-h1:            (@font-size-base * 2.25); // 2.25em
+@font-size-h2:            (@font-size-base * 1.75); // 1.75em
+@font-size-h3:            (@font-size-base * 1.5); // 1.5em
+@font-size-h4:            (@font-size-base * 1.125); // 1.125em
+@font-size-h5:            @font-size-base;
+@font-size-h6:            (@font-size-base * 0.875); // 0.875em
+
+@headings-font-family:    inherit;
+@headings-line-height:    1.2;
+@headings-color:          inherit;
+
+//-- Border radius
+//---------------------------------
+@border-radius-base:        5px;
+@border-radius-round:       50%;
+
+//-- Buttons
+
+//## Normal Buttons
+//------------------------------------------------
+@btn-font-size:                	 (@font-size-base * 1.25); // 1.25em
+@btn-font-weight:                normal;
+
+@btn-default-color:              #fff;
+@btn-default-bg:                 @brand-default;
+
+@btn-primary-color:              #fff;
+@btn-primary-bg:                 @brand-primary;
+
+@btn-success-color:              #fff;
+@btn-success-bg:                 @brand-success;
+
+@btn-info-color:                 #fff;
+@btn-info-bg:                    @brand-info;
+
+@btn-warning-color:              #fff;
+@btn-warning-bg:                 @brand-warning;
+
+@btn-danger-color:               #fff;
+@btn-danger-bg:                  @brand-danger;
+
+@btn-disabled-color:             #fff;
+@btn-disabled-bg:                @brand-muted;
+
+//## Outlined Buttons
+//-----------------------------------------------
+@btn-outlined-default-color:     		@brand-default;
+@btn-outlined-default-border:       1px solid @brand-default;
+
+@btn-outlined-primary-color:        @brand-primary;
+@btn-outlined-primary-border:       1px solid @brand-primary;
+
+@btn-outlined-success-color:        @brand-success;
+@btn-outlined-success-border:       1px solid @brand-success;
+
+@btn-outlined-info-color:           @brand-info;
+@btn-outlined-info-border:          1px solid @brand-info;
+
+@btn-outlined-warning-color:        @brand-warning;
+@btn-outlined-warning-border:       1px solid @brand-warning;
+
+@btn-outlined-danger-color:         @brand-danger;
+@btn-outlined-danger-border:        1px solid @brand-danger;
+
+@btn-outlined-disabled-color:       @brand-muted;
+@btn-outlined-disabled-border:      1px solid @brand-muted;
+
+//-- Forms
+//-----------------------------------
+@input-height-base: 			46px;
+@input-height-sm:					35px;
+@input-color:							@brand-default;
+@input-border:						@brand-primary;
+@input-border-invert:			#fff;
+@input-border-radius:			@border-radius-base;
+@legend-color:            @gray-dark;
+@legend-border-color:     #e5e5e5;
+
+//-- Header
+//-----------------------------------
+@header-left-bg: 			@brand-default;
+@header-right-bg: 		@brand-primary;
+@header-height: 			144px;
+@small-header-height: 72px;
+
+//-- Modals
+//-----------------------------------
+@modal-content-bg:						#fff;
+@modal-backdrop-bg:           @brand-default;
+@modal-backdrop-opacity:      .85;
+@modal-header-border-color:   @brand-success;
+
+//-- Footer
+//---------------------------------
+@footer-bg: @brand-default;
+
+//-- Media queries breakpoints
+//------------------------------------------------------
+@desktop:   		 ~"only screen and (max-width: 1200px)";
+@tablet-land:    ~"only screen and (max-width: 991px)";
+@tablet-port:    ~"only screen and (max-width: 768px)";
+@mobile-land:		 ~"only screen and (max-width: 480px)";
+@mobile-port:		 ~"only screen and (max-width: 360px)";

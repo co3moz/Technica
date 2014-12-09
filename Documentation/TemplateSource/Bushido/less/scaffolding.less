@@ -1,0 +1,59 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+html {
+  font-size: 100%;
+}
+.page-content {
+	padding-top: @header-height;
+}
+.gray-bg {
+	background: @gray-lighter;
+}
+.text-center-mobile {
+	@media @tablet-port { text-align: center !important; }
+}
+
+//--Clearfix
+//-------------------------
+.group:after {
+	visibility: hidden;
+	display: block;
+	content: "";
+	clear: both;
+	height: 0;
+}
+
+//--All Images responsive
+//-------------------------
+img {
+  .img-responsive(); //All Images responsive
+}
+.img-rounded {
+	.border-radius();
+}
+.img-circle {
+	.border-round();
+}
+.img-thumbnail {
+	.border-radius();
+	border: 1px solid @brand-muted;
+}
+.img-circle-thumbnail {
+	.border-round();
+	padding: 4px;
+	border: 1px solid @brand-muted;
+}
+
+//--Text Selection Color
+//-------------------------
+::selection { color: #fff; background:@brand-default; }
+::-moz-selection { color: #fff; background: @brand-default; }
+
+//--Extra Space Classes
+//-------------------------
+.space-top { margin-top: (@vert-gap*1.5); }
+.space-bottom { margin-bottom: (@vert-gap*1.5); }
+.extra-space-top { margin-top: (@vert-gap*2); }
+.extra-space-bottom { margin-bottom: (@vert-gap*2); }

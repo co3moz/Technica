@@ -1,0 +1,611 @@
+//
+// Header
+// --------------------------------------------------
+
+//-- Main Header
+//---------------------------------------------------
+header {
+	position: absolute;
+	z-index: 15;
+	width: 100%;
+	height: @header-height;
+	.header-bg(@header-height);
+	outline: none;
+	@media screen and (max-width: 500px) {//For jQuery resize testing
+		outline: hidden;
+	}
+	.container { position: relative; }
+	.logo {
+		display: block;
+		position: absolute;
+		width: 100%;
+		max-width: 146px;
+		top: 27px;
+		left: 27px;
+	}
+	.search-form {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: auto;
+		min-height: 100%;
+		background: @brand-primary;
+		z-index: 5;
+		color: #fff;
+		.transition(all, 0.4s);
+		&.closed {
+			opacity: 0;
+			top: -200px;
+		}
+		&.open {
+			opacity: 1;
+			top: 0px;
+		}
+		.container { 
+			position: relative;
+			padding: 0 85px 0 15px;
+			@media @tablet-land { padding: 0 60px 0 15px; } 
+		}
+		.form-group {
+			position: relative;
+		}
+		.form-control { 
+			margin-top: 50px;
+			color: #fff;
+			.form-control-focus(#fff);
+			.placeholder(#fff);
+			border: 1px solid @input-border-invert;
+		}
+		button[type=submit] {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 1.7em;
+			background: none;
+			border: none;
+			padding: 8px 18px 0 0;
+			.opacity(1, 100);
+			.transition(opacity, 0.3s);
+			&:hover {
+				.opacity(0.7, 70);
+			}
+		}
+		.close-search {
+			position: absolute;
+			right: 35px;
+			font-size: 1.75em;
+			top: 58px;
+			.opacity(1, 100);
+			cursor: pointer;
+			.transition(opacity, 0.3s);
+			&:hover {
+				.opacity(0.7, 70);
+			}
+			@media @tablet-land { right: 15px; }
+		}
+	}
+}
+.switchers {
+	display: block;
+	position: absolute;
+	list-style: none;
+	top: 26px;
+	left: 155px;
+	li {
+		display: inline-block;
+		position: relative;
+		z-index: 2;
+		color: @brand-success;
+		border: 1px solid #fff;
+		text-align: center;
+		font-size: @font-size-base;
+		padding: 3px 13px;
+		font-weight: 400;
+		margin-right: 5px;
+		.border-radius();
+		cursor: pointer;
+		.dropdown {
+			display: none;
+			position: absolute;
+			list-style: none;
+			background: @header-left-bg;
+			padding: 0 1px 5px 1px;
+			top: 100%;
+			left: -1px;
+			border: 1px solid #fff;
+			-webkit-border-radius: 0 0 @border-radius-base @border-radius-base;
+			-moz-border-radius: 0 0 @border-radius-base @border-radius-base;
+			border-radius: 0 0 @border-radius-base @border-radius-base;
+			li {
+				display: block;
+				font-size: @font-size-base*1.15;
+				border: none;
+				padding: 0;
+				margin-right: 0;
+				margin-bottom: 0;
+				.no-border-radius();
+				border-top: 1px solid #fff;
+				&:first-child { border-top: none; }
+				a {
+					display: block;
+					color: @brand-success;
+					padding: 3px 12px;
+					&:hover { color: #fff; }
+				}
+			}
+		}
+		&:hover {
+			background: #fff;
+			color: @header-left-bg; 
+			-webkit-border-radius: @border-radius-base @border-radius-base 0 0;
+			-moz-border-radius: @border-radius-base @border-radius-base 0 0;
+			border-radius: @border-radius-base @border-radius-base 0 0;
+			.dropdown {
+				display: block;
+				li {
+					background: none;
+					a { text-decoration: none; }
+				}
+			}
+		}
+	}
+}
+.toolbar {
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	right: 15px;
+	height: @header-height;
+	background: @header-right-bg;
+	padding: (@vert-gap/2) 0 (@vert-gap/2) 3px;
+	
+	.search-btn, .middle-btns, .cart-btn { float: left; }
+	.middle-btns { padding-top: 0px; }
+	button, a { 
+		margin-left: 12px;
+		text-decoration: none;
+		-webkit-transition: background 0.2s ease, color 0.2s ease;
+		-moz-transition: background 0.2s ease, color 0.2s ease;
+		transition: background 0.2s ease, color 0.2s ease;
+		&:hover { color: @header-right-bg !important; }
+		&:focus { color: #fff; }
+	}
+	button i, a i {
+		font-size: 1.2em;
+		color: #fff;
+		.transition (all, 0.3s);
+	}
+	button:hover i, a:hover i { color: @header-right-bg; }
+	.search-btn { 
+		height: 120px;
+		padding: 11px 0 0 0;
+		width: 60px;
+	}
+	.cart-btn {
+		position: relative;
+		height: 118px;
+		width: 110px;
+		margin: 0 0 0 12px;
+	}
+	.cart-btn:hover .cart-dropdown {
+		display: block;
+		@media @tablet-land {
+			display: none;
+		}
+	}
+	.cart-btn > .btn {
+		margin: 0;
+		position: absolute;
+		padding: 43px 0 0 0;
+		width: 100%;
+		min-height: 100%;
+		text-align: center;
+		.no-transition();
+		span {
+			display: block;
+			margin-right: 0;
+			font-size: 1.2em;
+			font-weight: 300;
+			margin-top: -5px;
+		}
+		i { 
+			margin-left: 7px; 
+			.transition(color, 0.2s);
+		}
+	}
+	.cart-btn:hover > .btn {
+		color: @header-right-bg;
+		background: #fff;
+		-webkit-border-radius: @border-radius-base @border-radius-base 0 0;
+		-moz-border-radius: @border-radius-base @border-radius-base 0 0;
+		border-radius: @border-radius-base @border-radius-base 0 0;
+		@media @tablet-land {
+			.border-radius();
+		}
+	}
+	.cart-btn:hover > .btn i { color: @header-right-bg; }
+	.search-btn i, .cart-btn i { font-size: 1.4em; }
+	.middle-btns a, .middle-btns button {
+		display: block;
+		position: relative;
+		padding: 13px 10px 0 13px;
+		width: 140px;
+		height: 53px;
+		text-align: left;
+		font-weight: 300;
+		font-size: 1em;
+		line-height: 0;
+	}
+	.middle-btns a i, .middle-btns button i {
+		margin-right: 12px;
+		font-size: 1.5em;
+		vertical-align: middle;
+	}
+	.login-btn { margin-top: 12px; }
+}
+.social-login {
+	margin-top: -10px;
+	a {
+		display: inline-block;
+		margin-right: 15px;
+		font-size: 3em;
+		text-decoration: none;
+		.opacity(1, 100);
+		.transition(opacity, 0.3s);
+		&:hover {
+			.opacity(0.7, 70);
+			text-decoration: none;
+			border: none;
+		}
+		&.facebook {
+			color: #3b5998 !important;
+		}
+		&.google {
+			color: #dd4b39 !important;
+		}
+		&.twitter {
+			color: #55acee !important;
+		}
+	}
+}
+.cart-dropdown {
+	position: absolute;
+	width: 470px;
+	background: #fff;
+	border: 1px solid @brand-primary;
+	top: 132px;
+	right: -1px;
+	display: none;
+	.body {
+		padding: @vert-gap 16px;
+		h3 {
+			text-align: center;
+			color: @brand-muted;
+			margin-bottom: 0;
+		}
+		a { .transition(color, 0.3s); }
+	}
+	span {
+		position: absolute;
+		width: 110px;
+		height: 18px;
+		background-color: #fff;
+		right: 0;
+		top: -15px;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		th {
+			font-size: @font-size-base;
+			color: @brand-muted;
+			font-weight: normal;
+			padding-bottom: @vert-gap;
+			&:first-child {
+				padding-left: 20px;
+				width: 58%;
+			}
+		}
+		td {
+			padding-bottom: (@vert-gap/2);
+			a {
+				color: @brand-default;
+				.transition(opacity, 0.2s);
+				&:hover {
+					color: @brand-default;
+					.opacity(0.7, 70);
+				}
+			}
+			&:first-child {
+				padding-right: 15px;
+			}
+			input {
+				width: 46px;
+				height: 34px;
+				border: 1px solid @input-border;
+				.border-radius();
+				outline: 0;
+				text-align: center;
+				padding-left: 6px;
+				padding-right: 6px;
+			}
+			&.price {
+				font-weight: bold;
+				font-size: @font-size-large;
+			}
+			.delete {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				background: url(../img/forms/delete.png) no-repeat;
+				margin-right: 10px;
+				cursor: pointer;
+				.opacity(1, 100);
+				.transition(all, 0.3s);
+				&:hover {
+					.opacity(0.7, 70);
+				}
+			}
+		}
+	}
+	.footer {
+		width: 470px;
+		margin-left: -1px;
+		position: relative;
+		bottom: -5px;
+		background: @brand-success;
+		padding: 16px;
+		-webkit-border-radius: 0 0 @border-radius-base @border-radius-base;
+		-moz-border-radius: 0 0 @border-radius-base @border-radius-base;
+		border-radius: 0 0 @border-radius-base @border-radius-base;
+		.buttons {
+			float: left;
+		}
+		.total {
+			float: right;
+			font-size: (@font-size-base * 1.5);
+			font-weight: bold;
+			color: #fff;
+			padding-top: 6px;
+		}
+		.btn {
+			padding: 10px 15px 3px 15px;
+			font-weight: 300;
+			min-width: 113px;
+			font-size: (@btn-font-size/1.25);
+			&:first-child {
+				margin-left: 0;
+				min-width: 130px;
+			}
+			&:hover {
+				color: @brand-success !important;
+				i { color: @brand-success; }
+			}
+			&:after {
+				visibility: hidden;
+				display: block;
+				content: "";
+				clear: both;
+				height: 0;
+			}
+			i {
+				display: block;
+				float: left;
+				font-size: 1.4em;
+			}
+		}
+	}
+}
+
+//-- Small Header
+//---------------------------------------------------
+.small-header {
+	height: @small-header-height;
+	.header-bg(@small-header-height);
+	opacity: 0;
+	top: -100px;
+		position: fixed;
+	.transition(all, 0.4s);
+	&.stuck {
+		position: fixed;
+		top: 0;
+		opacity: 1;
+		z-index: 10;
+	}
+	.logo, .hide-sm { display: none !important; }
+	.switchers { display: none; }
+	.hide-sm {
+		@media @tablet-land { display: block !important; }
+	}
+	.search-form {
+		.form-group { margin-bottom: 0; }
+		.form-control { margin-top: 14px; }
+		.close-search { top: 23px; }
+	}
+	.toolbar {
+		height: @small-header-height;
+		padding: (@vert-gap/2) 0 (@vert-gap/2) 3px;
+		
+		.search-btn, .middle-btns, .cart-btn { float: left; }
+		.middle-btns { padding-top: 0px; }
+		.middle-btns a:first-child, .middle-btns a i { display: none; }
+		.middle-btns a, .search-btn { border: none; }
+		.middle-btns a { width: auto; }
+		button, .login-btn { 
+			margin-left: 12px;
+			.opacity(1, 100);
+			.transition (all, 0.3s);
+			&:hover {
+				color: #fff !important;
+				.opacity(0.7, 70);
+				background: none;
+			}
+		}
+		button i { color: #fff; }
+		.search-btn { 
+			height: 63px;
+			padding: 0;
+			width: 30px;
+		}
+		.cart-btn {
+			position: relative;
+			height: 50px;
+			width: 110px;
+			margin: -2px 0 0 12px;
+			&> .btn {
+					padding: 10px 0 0 0;
+				span {
+					display: inline-block;
+					font-size: 1.2em;
+					font-weight: 300;
+					margin-top: -5px;
+				}
+				i { margin-left: 0; }
+				&:hover { .opacity(1, 100); }
+			}
+			.cart-dropdown {
+				top: 61px;
+				span {
+					position: absolute;
+					width: 110px;
+					height: 14px;
+					background-color: #fff;
+					right: 0;
+					top: -13px;
+				}
+			}
+		}
+	}
+}
+
+//-- Header Mobile
+//---------------------------------------------------
+
+//--Small Descktops
+@media @desktop {
+	header .logo {
+		max-width: 90px;
+		top: 33px;
+	}
+	.switchers { left: 90px; }
+}
+
+//--Tablet Landscape
+@media @tablet-land {
+	header {
+		.logo {
+			max-width: 146px;
+			top: 27px;
+		}
+		.switchers { left: 155px; }
+		.container { width: 100%; }
+		.mobile-border {
+			width: 100%;
+			position: absolute;
+			padding: 0 400px 0 15px;
+			left: 0;
+			top: 73px;
+			span {
+				display: block;
+				width: 100%;
+				height: 1px;
+				background: @brand-success;
+			}
+		}
+	}
+	.small-header .mobile-border { display: none; }
+}
+
+//--Tablet Small
+@media screen and (max-width: 640px) {
+	header {
+		.mobile-border { padding-right: 220px; }
+		.toolbar {
+			button, a {
+				width: 70px !important;
+				height: 52px !important;
+				span { display: none; }
+			}
+			.middle-btns { float: right; }
+			.middle-btns a { padding-left: 22px; }
+			.cart-btn {
+				position: absolute;
+				float: none;
+				height: 52px;
+				width: 70px;
+				margin-top: 64px;
+			}
+			.cart-btn > .btn {
+				padding: 12px 0 0 0;
+				span {
+					display: inline-block;
+					font-size: 1.1em;
+					font-weight: 300;
+					margin-top: -5px;
+				}
+				i { margin-left: 0;font-size: 1.2em; }
+			}
+		}
+	}
+	.small-header {
+		.toolbar {
+			button, a, .middle-btns {
+				text-align: center;
+				span { display: inline; }
+			}
+			.search-btn { margin-top: 5px; width: 60px !important; }
+			.cart-btn {
+				margin-left: 15px !important; 
+				width: 100px;
+				.btn { width: 100px !important; }
+			}
+			.login-btn { padding-left: 0; }
+		}
+	}
+}
+@media screen and (max-width: 525px) {
+	header .switchers {
+		top: (@header-height/1.6);
+		left: 30px;
+	}
+}
+
+//--Mobile Landscape
+@media @mobile-land {
+	header .mobile-border { display: none; }
+	.small-header {
+		.toolbar {
+			.search-btn { margin-left: 0; width: 45px !important; }
+			.cart-btn {
+				margin-left: 8px !important; 
+				width: 70px;
+				.btn { width: 70px !important; font-size: 1.2em; padding-top: 12px; }
+			}
+			.login-btn { margin-left: 8px; }
+		}
+	}
+}
+
+//--Mobile Portrait
+@media @mobile-port {
+	header {
+		.logo {
+			display: block;
+			position: absolute;
+			width: 100%;
+			max-width: 87px;
+			top: 27px;
+			left: 12px;
+		}
+		.menu-toggle { left: 3px; }
+		.switchers {
+			left: 15px;
+			li {
+				padding: 3px 9px;
+				.dropdown li a {
+					padding: 3px 8px;
+				}
+			}
+		}
+	}
+}

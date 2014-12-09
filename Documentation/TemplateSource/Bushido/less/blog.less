@@ -1,0 +1,119 @@
+//
+// Blog
+// --------------------------------------------------
+
+// Blog Page
+// --------------------------------------------------
+.blog {
+	.post {
+		margin-bottom: (@vert-gap*2);
+		.title {
+			a { 
+				.transition(border, 0.3s);
+				border-bottom: 1px solid transparent;
+			}
+			&:hover a {
+				text-decoration: none;
+				border-bottom: 1px solid @brand-primary;
+			}
+		}
+		img {
+			.border-radius();
+			margin-bottom: @vert-gap;
+		}
+		p {
+			@media @tablet-port { font-size: @font-size-small; }
+		}
+		footer {
+			.btn { 
+				float: left;
+				margin-right: 20px;
+				margin-bottom: (@vert-gap/1.5);
+				@media @tablet-port { float: none; }
+			}
+			.share {
+				display: block;
+				float: left;
+				padding-top: 5px;
+				@media @tablet-port { float: none; }
+				a {
+					font-size: 1.5em;
+					margin-right: 10px;
+					&:hover {
+						color: darken(@brand-primary, 10%);
+					}
+				}
+			}
+			.meta {
+				display: block;
+				padding: 15px 0 0 0;
+				list-style: none;
+				float: right;
+				text-align: right;
+				font-weight: 500;
+				@media @tablet-port {
+					float: none;
+					text-align: left;
+				}
+				li {
+					display: inline-block;
+					margin-left: 15px;
+					@media @tablet-port { 
+						margin-left: 0;
+						margin-right: 15px;
+					}
+					i { margin-right: 5px; }
+				}
+			}
+			&:after {
+				visibility: hidden;
+				display: block;
+				content: "";
+				clear: both;
+				height: 0;
+			}
+		}
+	}
+	.comments-block { margin-bottom: (@vert-gap*2); }
+}
+
+// Tags (Sidebar)
+// --------------------------------------------------
+.tags {
+	color: @brand-primary;
+	margin-bottom: (@vert-gap*1.4);
+	line-height: @line-height-sm;
+}
+
+// Latest Posts (Sidebar)
+// --------------------------------------------------
+.latest-posts {
+	.post {
+		margin-bottom: (@vert-gap/1.5);
+		& > a {
+			display: inline-block;
+			margin-bottom: (@vert-gap/3);
+		}
+		.meta {
+			font-size: @font-size-small;
+			color: @brand-muted;
+			a {
+				display: block;
+				float: left;
+				color: @brand-muted;
+				margin-bottom: 12px;
+			}
+			.date {
+				display: block;
+				float: right;
+			}
+			&:after {
+				visibility: hidden;
+				display: block;
+				content: "";
+				clear: both;
+				height: 0;
+			}
+		}
+	}
+}

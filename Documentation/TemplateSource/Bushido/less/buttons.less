@@ -1,0 +1,260 @@
+//
+// Buttons Normal
+// --------------------------------------------------
+
+.btn {
+	font-size: @btn-font-size;
+	color: @btn-default-color;
+	padding: 10px 40px;
+  font-weight: @btn-font-weight;
+  text-align: center;
+	background: @btn-default-bg;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+	.border-radius();
+  white-space: nowrap;
+	.transition(all, 0.3s);
+	outline: 0;
+	margin-right: 5px;
+	&:hover {
+		background: darken(@btn-default-bg, 10%);
+		text-decoration: none;
+	}
+	&:active,
+	&.active {
+		background-image: none;
+		box-shadow: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+		pointer-events: none;
+		color: @btn-disabled-color;
+		background: @btn-disabled-bg;
+	}
+	span { 
+		font-weight: 900;
+		margin-right: 15px;
+	}
+	i {
+		font-size: 1.25em;
+		line-height: 1.2;
+		vertical-align: middle;
+		//padding-top: 15px;
+		margin-right: 10px;
+	}
+}
+
+// Button color variations
+// --------------------------------------------------
+.btn-default {
+  background: @btn-default-bg;
+	color: @btn-default-color;
+	&:hover {
+		background: darken(@btn-default-bg, 10%);
+	}
+}
+.btn-primary {
+  background: @btn-primary-bg;
+	color: @btn-primary-color;
+	&:hover {
+		background: darken(@btn-primary-bg, 10%);
+	}
+}
+.btn-success {
+  background: @btn-success-bg;
+	color: @btn-success-color;
+	&:hover {
+		background: darken(@btn-success-bg, 10%);
+	}
+}
+.btn-info {
+  background: @btn-info-bg;
+	color: @btn-info-color;
+	&:hover {
+		background: darken(@btn-info-bg, 10%);
+	}
+}
+.btn-warning {
+  background: @btn-warning-bg;
+	color: @btn-warning-color;
+	&:hover {
+		background: darken(@btn-warning-bg, 10%);
+	}
+}
+.btn-danger {
+  background: @btn-danger-bg;
+	color: @btn-danger-color;
+	&:hover {
+		background: darken(@btn-danger-bg, 10%);
+	}
+}
+
+//
+// Buttons Outlined
+// --------------------------------------------------
+.btn-outlined {
+	font-size: @btn-font-size;
+	color: @btn-outlined-default-color;
+	padding: 10px 40px;
+  font-weight: @btn-font-weight;
+  text-align: center;
+	background: none;
+	border: @btn-outlined-default-border;
+  vertical-align: middle;
+  cursor: pointer;
+	.border-radius();
+  white-space: nowrap;
+	.transition(all, 0.4s);
+	outline: 0;
+	&:hover {
+		border-color: transparent;
+		background: @btn-default-bg;
+		color: #fff;
+		text-decoration: none;
+	}
+	&:active,
+	&.active {
+		background-image: none;
+		box-shadow: none;
+	}
+	&.btn-default {
+		border: @btn-outlined-default-border;
+		color: @btn-outlined-default-color;
+		&:hover {
+			border-color: transparent;
+			background: @btn-default-bg;
+			color: #fff;
+		}
+	}
+	&.btn-primary {
+		border: @btn-outlined-primary-border;
+		color: @btn-outlined-primary-color;
+		&:hover {
+			border-color: transparent;
+			background: @btn-primary-bg;
+			color: #fff;
+		}
+	}
+	&.btn-success {
+		border: @btn-outlined-success-border;
+		color: @btn-outlined-success-color;
+		&:hover {
+			border-color: transparent;
+			background: @btn-success-bg;
+			color: #fff;
+		}
+	}
+	&.btn-info {
+		border: @btn-outlined-info-border;
+		color: @btn-outlined-info-color;
+		&:hover {
+			border-color: transparent;
+			background: @btn-info-bg;
+			color: #fff;
+		}
+	}
+	&.btn-warning {
+		border: @btn-outlined-warning-border;
+		color: @btn-outlined-warning-color;
+		&:hover {
+			border-color: transparent;
+			background: @btn-warning-bg;
+			color: #fff;
+		}
+	}
+	&.btn-danger {
+		border: @btn-outlined-danger-border;
+		color: @btn-outlined-danger-color;
+		&:hover {
+			border-color: transparent;
+			background: @btn-danger-bg;
+			color: #fff;
+		}
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+		pointer-events: none;
+		background: none;
+		color: @btn-outlined-disabled-color;
+		border: @btn-outlined-disabled-border;
+	}
+}
+
+//
+// Buttons Outlined Inverted
+// --------------------------------------------------
+.btn-outlined-invert {
+	font-size: @btn-font-size;
+	color: #fff;
+	padding: 10px 40px;
+  font-weight: @btn-font-weight;
+  text-align: center;
+	background: none;
+	border: 1px solid #fff;
+  vertical-align: middle;
+  cursor: pointer;
+	.border-radius();
+  white-space: nowrap;
+	.transition(all, 0.4s);
+	outline: 0;
+	&:hover {
+		border-color: transparent;
+		background: #fff;
+		color: @brand-default;
+		text-decoration: none;
+	}
+	&.btn-default {
+		&:hover {
+			color: @brand-default;
+		}
+	}
+	&.btn-primary {
+		&:hover {
+			color: @brand-primary;
+		}
+	}
+	&.btn-success {
+		&:hover {
+			color: @brand-success;
+		}
+	}
+	&.btn-info {
+		&:hover {
+			color: @brand-info;
+		}
+	}
+	&.btn-warning {
+		&:hover {
+			color: @brand-warning;
+		}
+	}
+	&.btn-danger {
+		&:hover {
+			color: @brand-danger;
+		}
+	}
+}
+
+// Button sizes
+// --------------------------------------------------
+.btn-lg {
+	padding: 14px 50px;
+	font-size: (@btn-font-size*1.2); 
+}
+.btn-sm {
+	padding: 6px 30px;
+	font-size: (@btn-font-size/1.25); 
+}
+.btn-xs {
+	padding: 2px 20px;
+	font-size: (@btn-font-size*0.7); 
+}
+.btn-block {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}

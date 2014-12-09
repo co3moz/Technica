@@ -1,0 +1,453 @@
+//
+// Navigation (Menu)
+// --------------------------------------------------
+
+//-- Desktop (Normal State)
+//---------------------------------------------------
+.menu {
+	display: block;
+	width: 100%;
+	height: @header-height;
+	background: @header-left-bg;
+	padding: 20px 0 0 0;
+	.main, .catalog {
+		display: block;
+		list-style: none;
+		text-align: right;
+		width: 100%;
+		max-width: 748px;
+		border-bottom: 1px solid @brand-success;
+		@media @desktop { max-width: 570px; }
+		li {
+			position: relative;
+			display: inline-block;
+			font-size: @font-size-base*1.14;
+			margin-left: 2px;
+			margin-bottom: 7px;
+			-webkit-border-radius: @border-radius-base @border-radius-base 0 0;
+			-moz-border-radius: @border-radius-base @border-radius-base 0 0;
+			border-radius: @border-radius-base @border-radius-base 0 0;
+			&.has-submenu {
+				&:hover {
+					background: @brand-primary;
+					a { .no-transition(); }
+					.submenu { display: block; }
+				}
+				a > i { display: none; }
+			}
+			a {
+				display: block;
+				padding: 8px 12px 10px 12px;
+				.transition(all, 0.2s);
+			}
+			&:hover a {
+				text-decoration: none;
+				color: #fff;
+			}
+			.label {
+				position: absolute;
+				background: @brand-danger;
+				font-weight: normal;
+				font-size: @font-size-base*0.6;
+				padding-top: 4px;
+				top: -3px;
+				left: 60%;
+				@media @tablet-land {
+					position: relative;
+					display: inline-block;
+					left: auto;
+					top: auto;
+					margin-left: 10px;
+				}
+			}
+		}
+		.submenu {
+			position: absolute;
+			top: 44px;
+			min-width: 230px;
+			z-index: 10;
+			background: @brand-default;
+			border: 1px solid @brand-primary;
+			padding: (@vert-gap/1.8) 6px (@vert-gap/2.5) 6px;
+			-webkit-border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
+			-moz-border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
+			border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
+			font-size: 0.8em;
+			display: none;
+			li {
+				display: block;
+				text-align: left;
+				margin-left: 0;
+				margin-bottom: 0;
+				border-top: 1px solid @brand-primary;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				border-radius: 0;
+				.transition(all, 0.25s);
+				&:first-child {
+					padding-top: 0;
+					border-top: none;
+				}
+				&:hover {
+					background: @brand-primary;
+				}
+				a {
+					display: block;
+					color: #fff;
+					padding: 8px 0 12px 6px;
+				}
+				.label {
+					position: relative;
+					display: inline-block;
+					left: auto;
+					top: auto;
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+	.catalog {
+		border-bottom: none;
+		padding: 8px 0 0 0;
+		li {
+			margin-left: 32px;
+			.transition(background, 0.2s);
+			&:first-child {
+				margin-left: 0;
+			}
+			&:hover {
+				background: @brand-success;
+			}
+			@media @desktop {
+				margin-left: 0; 
+			}
+			&.has-submenu {
+				.no-transition();
+				&:hover {
+					background: @brand-success;
+					a { .no-transition(); }
+					.submenu { display: block; }
+				}
+			}
+			a {
+				padding: 9px 14px 20px 14px;
+				color: #fff;
+				background: none;
+				@media @desktop {
+					padding: 9px 9px 20px 9px;
+				}
+			}
+			.submenu {
+				position: absolute;
+				top: 56px;
+				width: 740px;
+				z-index: 10;
+				background: @brand-default;
+				padding: (@vert-gap/2) 6px (@vert-gap/2) 6px;
+				border: 1px solid @brand-default;
+				border-top: none;
+				-webkit-border-radius: 0 0 @border-radius-base @border-radius-base;
+				-moz-border-radius: 0 0 @border-radius-base @border-radius-base;
+				border-radius: 0 0 @border-radius-base @border-radius-base;
+				li {
+					width: 212px;
+					border-top: 1px solid @brand-success;
+					&:hover {
+						background: @brand-success; 
+					}
+					&.has-submenu {
+						padding-right: 32px;
+					}
+					&.has-submenu:after {
+						display: block;
+						position: absolute;
+						right: 10px;
+						top: 50%;
+						margin-top: -11px;
+						font-family: FontAwesome;
+						color: #fff;
+						content: "\f054";
+						font-size: 0.9em;
+					}
+				}
+				.sub-submenu {
+					position: absolute;
+					display: none;
+					padding-left: 20px;
+					z-index: 5;
+					top: 0;
+					right: -195px;
+					li {
+						width: 180px;
+						border-top: 1px solid @brand-primary;
+						.transition(all, 0.2s);
+						&:first-child {
+							border-top: none;
+						}
+						a {
+							color: @brand-default;
+							.transition(all, 0.2s);
+						}
+						&:hover {
+							background: @brand-primary;
+							a {
+								color: #fff;
+							}
+						}
+					}
+				}
+				.offer {
+					display: block;
+					position: absolute;
+					width: 512px;
+					min-height: 100%;
+					top: 0;
+					right: 0;
+					background: #fff;
+					border: none;
+					-webkit-border-radius: 0 0 @border-radius-base 0;
+					-moz-border-radius: 0 0 @border-radius-base 0;
+					border-radius: 0 0 @border-radius-base 0;
+					&:hover {
+						background: #fff;
+					}
+					.col-1 {
+						width: 40%;
+						position: absolute;
+						left: 0;
+						padding: 35px 0 20px 15px;
+					}
+					.col-2 {
+						width: 60%;
+						position: absolute;
+						right: 0;
+						padding: @vert-gap 40px 0 20px;
+					}
+					img {
+						margin-bottom: (@vert-gap/2);
+					}
+					.btn { 
+						background: @brand-primary;
+						.transition(all, 0.3s);
+						&:hover {
+							background: darken(@brand-primary, 10%);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.menu-toggle { 
+	display: none;
+	position: absolute;
+	left: 16px;
+	top: 85px;
+	font-size: 1.75em;
+	background: transparent;
+	padding: 2px 10px 0 10px;
+	.border-radius();
+	color: #fff;
+	cursor: pointer;
+	.transition(background, 0.3s);
+	&:hover {
+		background: @brand-success;
+	}
+}
+
+//-- Small Header Navi
+//---------------------------------------------------
+.small-header .menu {
+	height: @small-header-height;
+	padding-top: 15px;
+	.main, .catalog {
+		float: left;
+		text-align: left;
+		width: auto;
+		max-width: none;
+		padding-left: 0;
+		padding-top: 0px;
+		border-bottom: none;
+	}
+	.main {
+		margin-right: 5px;
+		li {
+			margin-left: 0;
+			a { padding: 8px 12px 22px 12px; }
+			.submenu { 
+				top: 57px;
+				border-top-right-radius: 0;
+				li a { padding: 8px 12px 10px 12px; }
+			}
+		}
+		@media @desktop { display: none; }
+		@media @tablet-land { display: block; }
+	}
+	.catalog {
+		li {
+			margin-left: 0;
+			a { padding-bottom: 21px; }
+			.submenu { 
+				top: 57px;
+				a { padding-bottom: 12px; }
+			}
+		}
+	}
+}
+.small-header {
+	.menu-toggle { 
+		left: 15px;
+		top: 15px;
+	}
+}
+
+//-- Mobile (Collapsed State)
+//---------------------------------------------------
+
+//--Tablet Landscape
+@media @tablet-land {
+	.menu, .small-header .menu {
+		position: absolute;
+		left: 0;
+		max-width: 100%;
+		height: 340px;
+		border-top: 1px solid #fff;
+		top: @header-height;
+		padding: 15px 15px 30px 15px;
+		overflow-y: scroll;
+		display: none;
+		&.expanded { display: block; }
+		.catalog { 
+			li {
+				a { border-bottom: 1px solid @brand-success; }
+				a:last-child { border-bottom: none; }
+				a:hover { background: @brand-success; }
+			}
+		}
+		.main li {
+			a { border-bottom: 1px solid @brand-primary; }
+			a:hover { background: @brand-primary; }
+		}
+		.main, .catalog {
+			width: 100%;
+			max-width: 100%;
+			float: none;
+			text-align: left;
+			padding: 0;
+			margin: 0;
+			border: none;
+			li {
+				display: block;
+				width: 100% !important;
+				.no-border-radius();
+				margin-bottom: 0;
+				border: none;
+				.transition(background, 0.3s);
+				&.has-submenu {
+					a { display: block; padding-right: 60px !important; }
+					&:hover {
+						a { .transition(background, 0.3s); }
+						.submenu { display: block; }
+					}
+					a > i {
+						display: block;
+						position: absolute;
+						right: 10px;
+						top: 50%;
+						width: 50px;
+						text-align: center;
+						height: 40px;
+						padding: 12px;
+						margin-top: -20px;
+						//font-family: FontAwesome;
+						color: #fff;
+						//content: "\f078";
+						font-size: 0.9em;
+						.transition(all, 0.25s);
+						line-height: 1;
+						&:hover {
+							color: #fff;
+							.opacity(.75, 75) !important;
+						}
+					}
+					a > i.open:before { content: "\f077"; }
+					.submenu a:after { display: none; }
+					.sub-submenu, .offer { display: none !important; }
+				}
+				a {
+					position: relative;
+					background: transparent;
+					padding: 11px 15px !important;
+					color: #fff;
+					.transition(background, 0.3s);
+				}
+			}
+			.submenu {
+				display: block;
+				position: relative !important;
+				width: 100% !important;
+				max-height: 0px !important;
+				overflow: hidden !important;
+				padding: 0 !important;
+				top: 0 !important;
+				border: none;
+				.no-border-radius();
+				.transition(all, 0.3s);
+				&.open {
+					max-height: 1000px !important;
+					padding: 10px 0 !important;
+				}
+				li {
+					padding-left: 20px;
+					border-top: none;
+					border-bottom: 1px solid lighten(@brand-default, 15%);
+					a {
+						padding-right: 15px; 
+						.transition(all, 0.3s) !important;
+						border: none;
+					}
+					&:hover, &:hover a {
+						background: none !important;
+						color: @brand-primary;
+					}
+				}
+			}
+		}
+		.main, .catalog {
+			li.has-submenu a i {
+				border: 1px solid transparent;
+				.border-radius();
+			}
+			li.has-submenu:hover a i { border: 1px solid #fff; }
+		}
+		.catalog {
+			margin-top: 15px;
+			margin-left: 2px;
+			li {
+				position: relative;
+				z-index: 6;
+				margin-top: -1px;
+				a { border-bottom: 1px solid @brand-success !important; }
+				&.has-submenu { 
+					.transition(background, 0.3s);
+				}
+				.submenu {
+					top: 0px;
+					.no-border-radius();
+					li {
+						width: 100%;
+						border-top: none;
+						border-bottom: 1px solid lighten(@brand-default, 15%);
+						&:hover, &:hover a {
+							color: @brand-success !important;
+						}
+						a { border: none !important; }
+						&.has-submenu:after { display: none; }
+					}
+				}
+			}
+		}
+	}
+	.menu-toggle { display: block; }
+	.small-header .menu { top: @small-header-height; }
+}
