@@ -18,17 +18,7 @@ namespace Technica
                 "~/Scripts/libs/jquery-1.11.1.min.js",
                 "~/Scripts/libs/jquery-ui-1.10.4.custom.min.js",
                 "~/Scripts/libs/jquery.easing.min.js",
-                "~/Scripts/plugins/bootstrap.min.js",
-                "~/Scripts/plugins/smoothscroll.js",
-                "~/Scripts/plugins/jquery.validate.min.js",
-                "~/Scripts/plugins/icheck.min.js",
-                "~/Scripts/plugins/jquery.placeholder.js",
-                "~/Scripts/plugins/jquery.stellar.min.js",
-                "~/Scripts/plugins/jquery.touchSwipe.min.js",
-                "~/Scripts/plugins/jquery.shuffle.min.js",
-                "~/Scripts/plugins/lightGallery.min.js",
-                "~/Scripts/plugins/owl.carousel.min.js",
-                "~/Scripts/plugins/masterslider.min.js",
+                "~/Scripts/plugins/*.js",
                 "~/Scripts/scripts.js"));
 
 
