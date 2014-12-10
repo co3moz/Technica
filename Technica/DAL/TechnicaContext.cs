@@ -11,7 +11,7 @@ namespace Technica.DAL
     public class TechnicaContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Adress> Adresses { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         public TechnicaContext() : base("TechnicaContext")
         {
