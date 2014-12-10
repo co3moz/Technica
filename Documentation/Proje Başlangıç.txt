@@ -44,3 +44,4 @@ packages.config
 Web.config
 	Eklenilen database'in yeri , ismi, giriþ izinleri , website'ye giriþ izinleri ,kullanýcý doðrulamalarý , roller , hata ayarlarý , karakter kodlamalarý gibi ayarlarýn yapýlmasýný saðlayan dosyadýr.
 	
+Tolga got it.
