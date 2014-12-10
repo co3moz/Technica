@@ -119,12 +119,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SadeceDenemeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\TechnicaContext.cs" />
+    <Compile Include="DAL\TechnicaInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Adress.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -253,7 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SadeceDeneme\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -275,6 +275,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="img\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
