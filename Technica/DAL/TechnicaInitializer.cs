@@ -7,7 +7,7 @@ using Technica.Models;
 
 namespace Technica.DAL
 {
-    public class TechnicaInitializer : DropCreateDatabaseIfModelChanges<TechnicaContext>
+    public class TechnicaInitializer : DropCreateDatabaseAlways<TechnicaContext>
     {
         protected override void Seed(TechnicaContext context)
         {

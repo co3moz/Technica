@@ -12,15 +12,17 @@ namespace Technica.DAL
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Shipping> Shippings { get; set; }
 
-        public TechnicaContext() : base("TechnicaContext")
+
+        public TechnicaContext()
+            : base("TechnicaContext")
         {
 
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }
