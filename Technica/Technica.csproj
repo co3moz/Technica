@@ -141,6 +141,50 @@
     <Content Include="Content\css\colors\color-scheme4.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\uncompressed\styles.css" />
+    <Content Include="Content\masterslider\blank.gif" />
+    <Content Include="Content\masterslider\skins\black-1\black-skin-1-retina.png" />
+    <Content Include="Content\masterslider\skins\black-1\black-skin-1.png" />
+    <Content Include="Content\masterslider\skins\black-1\style.css" />
+    <Content Include="Content\masterslider\skins\black-2\black-skin-2-retina.png" />
+    <Content Include="Content\masterslider\skins\black-2\black-skin-2.png" />
+    <Content Include="Content\masterslider\skins\black-2\style.css" />
+    <Content Include="Content\masterslider\skins\contrast\contrast-skin-retina.png" />
+    <Content Include="Content\masterslider\skins\contrast\contrast-skin.png" />
+    <Content Include="Content\masterslider\skins\contrast\style.css" />
+    <Content Include="Content\masterslider\skins\default\light-skin-1-retina.png" />
+    <Content Include="Content\masterslider\skins\default\light-skin-1.png" />
+    <Content Include="Content\masterslider\skins\default\style.css" />
+    <Content Include="Content\masterslider\skins\light-2\light-skin-2-retina.png" />
+    <Content Include="Content\masterslider\skins\light-2\light-skin-2.png" />
+    <Content Include="Content\masterslider\skins\light-2\style.css" />
+    <Content Include="Content\masterslider\skins\light-3\light-skin-3-retina.png" />
+    <Content Include="Content\masterslider\skins\light-3\light-skin-3.png" />
+    <Content Include="Content\masterslider\skins\light-3\style.css" />
+    <Content Include="Content\masterslider\skins\light-4\light-skin-4-retina.png" />
+    <Content Include="Content\masterslider\skins\light-4\light-skin-4.png" />
+    <Content Include="Content\masterslider\skins\light-4\style.css" />
+    <Content Include="Content\masterslider\skins\light-5\light-skin-5-retina.png" />
+    <Content Include="Content\masterslider\skins\light-5\light-skin-5.png" />
+    <Content Include="Content\masterslider\skins\light-5\style.css" />
+    <Content Include="Content\masterslider\skins\light-6\light-skin-6-retina.png" />
+    <Content Include="Content\masterslider\skins\light-6\light-skin-6.png" />
+    <Content Include="Content\masterslider\skins\light-6\style.css" />
+    <Content Include="Content\masterslider\skins\metro\metro-skin-retina.png" />
+    <Content Include="Content\masterslider\skins\metro\metro-skin.png" />
+    <Content Include="Content\masterslider\skins\metro\style.css" />
+    <Content Include="Content\masterslider\style\arrow.png" />
+    <Content Include="Content\masterslider\style\grab.cur" />
+    <Content Include="Content\masterslider\style\grab.png" />
+    <Content Include="Content\masterslider\style\grabbing.cur" />
+    <Content Include="Content\masterslider\style\grabbing.png" />
+    <Content Include="Content\masterslider\style\loading-1-dark.gif" />
+    <Content Include="Content\masterslider\style\loading-1-light.gif" />
+    <Content Include="Content\masterslider\style\loading-1.gif" />
+    <Content Include="Content\masterslider\style\loading-2-dark.gif" />
+    <Content Include="Content\masterslider\style\loading-2-light.gif" />
+    <Content Include="Content\masterslider\style\loading-2.gif" />
+    <Content Include="Content\masterslider\style\masterslider.css" />
+    <Content Include="Content\masterslider\style\video-close-btn.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -253,8 +297,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -287,6 +329,10 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\masterslider\style\Thumbs.db" />
+    <Content Include="Content\masterslider\Thumbs.db" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
