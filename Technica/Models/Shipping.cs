@@ -5,10 +5,9 @@ using System.Web;
 
 namespace Technica.Models
 {
-    public class Product
+    public class Shipping
     {
         public int ID { get; set; }
-        public int CategoryID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
     }

@@ -18,7 +18,7 @@ namespace Technica.Models
         public string LastName { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime LastAccessDate { get; set; }
-        public string Cellphone { get; set; }
+        public string Phone { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
     }
 }

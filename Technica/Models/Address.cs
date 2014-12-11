@@ -16,5 +16,6 @@ namespace Technica.Models
         public string Country { get; set; }
         public string City { get; set; }
         public string ActualAddress { get; set; }
+        public string ZipCode { get; set; }
     }
 }

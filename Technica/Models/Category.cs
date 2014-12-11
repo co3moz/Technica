@@ -5,10 +5,10 @@ using System.Web;
 
 namespace Technica.Models
 {
-    public class Categories
+    public class Category
     {
-        public int ProductCategoriID { get; set; }
-        public string CategoriName { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
 
