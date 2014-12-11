@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,7 +9,8 @@ namespace Technica.Models
 {
     public class Order
     {
-
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int UserID { get; set; }
 
@@ -16,13 +19,10 @@ namespace Technica.Models
 
         public string Country { get; set; }
         public string City { get; set; }
+        public string ActualAddress { get; set; }
+        public string ZipCode { get; set; }
 
-        public decimal OrderShiping { get; set; }
-        public DateTime OrderDate { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
-
-
+        public int ShippingID { get; set; }
+        public DateTime Date { get; set; }
     }
 }
