@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Technica.Models
 {
-    public class Currency
+    public class Language
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,8 +15,5 @@ namespace Technica.Models
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Culture { get; set; }
-        public decimal Ratio { get; set; }
-
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }
