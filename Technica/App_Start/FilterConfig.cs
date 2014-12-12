@@ -13,7 +13,6 @@ namespace Technica
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            
             var session = filterContext.RequestContext.HttpContext.Session;
             var viewbag = filterContext.Controller.ViewBag;
 

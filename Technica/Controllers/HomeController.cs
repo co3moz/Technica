@@ -30,7 +30,7 @@ namespace Technica.Controllers
             Currency currency = db.Currencies.Find(id);
             if (currency != null)
             {
-                Session["currency"] = currency.ShortName;
+                Session["currency"] = currency;
             }
             return RedirectToAction("Index");
         }
@@ -45,7 +45,7 @@ namespace Technica.Controllers
             Language language = db.Languages.Find(id);
             if (language != null)
             {
-                Session["language"] = language.ShortName;
+                Session["language"] = language;
             }
             return RedirectToAction("Index");
         }
