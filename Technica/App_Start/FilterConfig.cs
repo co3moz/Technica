@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Technica.DAL;
 using Technica.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Technica
 {
@@ -20,6 +21,7 @@ namespace Technica
 
             viewbag.Currencies = db.Set<Currency>();
             viewbag.Languages = db.Set<Language>();
+            viewbag.Categories = db.Set<Category>();
 
             if (session["language"] == null)
             {
@@ -29,6 +31,13 @@ namespace Technica
             if (session["currency"] == null)
             {
                 session["currency"] = db.Currencies.First<Currency>();
+            }
+
+            if (session["basket"] == null)
+            {
+                List<Basket> basket = new List<Basket>();
+                basket.Add(new Basket { product = db.Products.First<Product>(), quantity = 1 });
+                session["basket"] = basket;
             }
             base.OnActionExecuting(filterContext);
         }

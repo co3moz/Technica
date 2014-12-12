@@ -126,6 +126,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Currency.cs" />
     <Compile Include="Models\Language.cs" />
@@ -265,6 +266,7 @@
     <Content Include="img\payment\visa.png" />
     <Content Include="img\people\1.png" />
     <Content Include="img\posts-widget\1.jpg" />
+    <Content Include="img\nikon1.jpg" />
     <Content Include="Scripts\404.js" />
     <Content Include="Scripts\coming-soon.js" />
     <Content Include="Scripts\libs\jquery-1.11.1.min.js" />
