@@ -117,19 +117,18 @@
                                     <th>Price</th>
                                 </tr>
                                 @{
-                                    decimal totalCost = 0;
-                                }
-                                @foreach (var product in Session["basket"] as List<Technica.Models.Basket>) {
-                                    @{
-                                    decimal cost = product.product.Price * (Session["currency"] as Technica.Models.Currency).Ratio;
+                                Technica.Models.Currency c = (Session["currency"] as Technica.Models.Currency);
+                                decimal totalCost = 0; 
+                                foreach (var product in Session["basket"] as List<Technica.Models.Basket>) {
+                                    decimal cost = product.product.Price / c.Ratio;
                                     totalCost += cost;
-                                    }
+                                    
                                     <tr class="item">
                                         <td><div class="delete"></div><a href="#">@product.product.Name</a></td>
                                         <td><input type="text" value="@product.quantity"></td>
-                                        <td class="price">@cost</td>
+                                        <td class="price">@String.Format("{0:0.0}", cost).Replace(",", ".") @MvcHtmlString.Create(@c.ShortName)</td>
                                     </tr>
-                                }
+                                }}
                             </table>
                         </div>
                         <div class="footer group">
@@ -137,7 +136,7 @@
                                 <a class="btn btn-outlined-invert" href="checkout.html"><i class="icon-download"></i>Checkout</a>
                                 <a class="btn btn-outlined-invert" href="shopping-cart.html"><i class="icon-shopping-cart-content"></i>To cart</a>
                             </div>
-                            <div class="total">@totalCost</div>
+                            <div class="total">@String.Format("{0:0.0}", totalCost).Replace(",", ".") @MvcHtmlString.Create(@c.ShortName)</div>
                         </div>
                     </div>
                 </div>
