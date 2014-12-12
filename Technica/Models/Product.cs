@@ -15,7 +15,9 @@ namespace Technica.Models
         public int CategoryID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public decimal? OldPrice { get; set; }
         public string Image { get; set; }
         public int SellCount { get; set; }
+        public int Stock { get; set; }
     }
 }

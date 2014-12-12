@@ -66,7 +66,7 @@
                     <ul class="dropdown">
                         @foreach (var currency in ViewBag.Currencies)
                         {
-                            <li><a href="/Currency/@currency.ID">@MvcHtmlString.Create(currency.ShortName)</a></li>
+                            <li><a href="/Home/Currency/@currency.ID">@MvcHtmlString.Create(currency.ShortName)</a></li>
                         }
                     </ul>
                 </li>
@@ -74,7 +74,7 @@
                     @MvcHtmlString.Create((Session["language"] as Technica.Models.Language).Name)
                     <ul class="dropdown">
                         @foreach(var language in ViewBag.Languages) {
-                            <li><a href="/Language/@language.ID">@language.Name</a></li>
+                            <li><a href="/Home/Language/@language.ID">@language.Name</a></li>
                         }
                     </ul>
                 </li>
