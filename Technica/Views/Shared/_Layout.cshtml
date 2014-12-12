@@ -67,16 +67,18 @@
                 <li>
                     $
                     <ul class="dropdown">
-                        <li><a href="#">&euro;</a></li>
-                        <li><a href="#">$</a></li>
+                        @foreach (var currency in ViewBag.Currencies)
+                        {
+                            <li><a href="/Currency/@currency.Name">@MvcHtmlString.Create(currency.ShortName)</a></li>
+                        }
                     </ul>
                 </li>
                 <li>
                     En
                     <ul class="dropdown">
-                        <li><a href="#">En</a></li>
-                        <li><a href="#">Fr</a></li>
-                        <li><a href="#">Gr</a></li>
+                        @foreach(var language in ViewBag.Languages) {
+                            <li><a href="/Language/@language.ShortName">@language.ShortName</a></li>
+                        }
                     </ul>
                 </li>
             </ul>

@@ -7,6 +7,13 @@ using System.Web;
 
 namespace Technica.Models
 {
+    public enum Power
+    {
+        Normal,
+        Moderator,
+        Administrator
+    }
+
     public class User
     {
         [Key]
@@ -19,6 +26,7 @@ namespace Technica.Models
         public DateTime RegistrationDate { get; set; }
         public DateTime LastAccessDate { get; set; }
         public string Phone { get; set; }
+        public Power Power { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; }
         public virtual ICollection<Order> Orders { get; set; }

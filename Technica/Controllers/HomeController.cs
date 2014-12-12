@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Technica.DAL;
+using Technica.Models;
 
 namespace Technica.Controllers
 {
@@ -13,20 +14,8 @@ namespace Technica.Controllers
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Currencies = db.Set<Currency>();
+            ViewBag.Languages = db.Set<Language>();
             return View();
         }
     }
