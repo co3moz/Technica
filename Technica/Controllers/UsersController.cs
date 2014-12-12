@@ -15,6 +15,40 @@ namespace Technica.Controllers
     {
         private TechnicaContext db = new TechnicaContext();
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LoginService([Bind(Include = "Email, Password")] User user)
+        {
+            if (Session["user"] == null)
+            {
+                User userFind = db.Users.Where(u => u.Email == user.Email).SingleOrDefault();
+                if (userFind != null)
+                {
+                    if (userFind.Password != user.Password)
+                    {
+                        return Content("Wrong Password");
+                    }
+                    Session["user"] = userFind;
+                    return Content("ok");
+                }
+                return Content("User not exists.");
+            }
+            return Content("ok");
+        }
+
+        [HttpPost]
+        public ActionResult LogoutService()
+        {
+            if (Session["user"] == null)
+            {
+                return Content("You didn't logined yet.");
+            }
+
+            Session["user"] = null;
+            return Content("ok");
+        }
+
+
         // GET: Users
         public ActionResult Index()
         {
