@@ -55,29 +55,27 @@
             </div>
         </form>
 
-        <!--Split Background-->
         <div class="left-bg"></div>
         <div class="right-bg"></div>
 
         <div class="container">
             <a class="logo" href="index.html"><img src="img/logo.png" alt="Bushido" /></a>
 
-            <!--Language / Currency Switchers-->
             <ul class="switchers">
                 <li>
-                    $
+                    @MvcHtmlString.Create((Session["currency"] as Technica.Models.Currency).ShortName) 
                     <ul class="dropdown">
                         @foreach (var currency in ViewBag.Currencies)
                         {
-                            <li><a href="/Currency/@currency.Name">@MvcHtmlString.Create(currency.ShortName)</a></li>
+                            <li><a href="/Home/Currency/@currency.ID">@MvcHtmlString.Create(currency.ShortName)</a></li>
                         }
                     </ul>
                 </li>
                 <li>
-                    En
+                    @MvcHtmlString.Create((Session["language"] as Technica.Models.Language).ShortName)
                     <ul class="dropdown">
                         @foreach(var language in ViewBag.Languages) {
-                            <li><a href="/Language/@language.ShortName">@language.ShortName</a></li>
+                            <li><a href="/Home/Language/@language.ID">@language.ShortName</a></li>
                         }
                     </ul>
                 </li>

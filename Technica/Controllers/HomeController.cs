@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Technica.DAL;
 using Technica.Models;
+
 
 namespace Technica.Controllers
 {
@@ -14,9 +17,37 @@ namespace Technica.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Currencies = db.Set<Currency>();
-            ViewBag.Languages = db.Set<Language>();
             return View();
+        }
+
+        public ActionResult Currency(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Currency currency = db.Currencies.Find(id);
+            if (currency != null)
+            {
+                Session["currency"] = currency.ShortName;
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Language(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Language language = db.Languages.Find(id);
+            if (language != null)
+            {
+                Session["language"] = language.ShortName;
+            }
+            return RedirectToAction("Index");
         }
     }
 }
