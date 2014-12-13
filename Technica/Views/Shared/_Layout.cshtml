@@ -127,15 +127,17 @@
                                 @{
                                 Technica.Models.Currency c = (Session["currency"] as Technica.Models.Currency);
                                 decimal totalCost = 0; 
+                                int i = 0;
                                 foreach (var product in Session["basket"] as List<Technica.Models.Basket>) {
                                     decimal cost = product.product.Price / c.Ratio;
                                     totalCost += cost;
                                     
                                     <tr class="item">
-                                        <td><div class="delete"></div><a href="#">@product.product.Name</a></td>
-                                        <td><input type="text" value="@product.quantity"></td>
+                                        <td><a href="/Cart/Remove/@i"><div class="delete"></div></a><a href="/Products/View/@product.product.Name.Replace(' ', '-')">@product.product.Name</a></td>
+                                        <td><input type="text" value="@product.quantity" readonly></td>
                                         <td class="price">@String.Format("{0:0.0}", cost).Replace(",", ".") @MvcHtmlString.Create(@c.ShortName)</td>
                                     </tr>
+                                    i++;
                                 }}
                             </table>
                         </div>
@@ -176,26 +178,10 @@
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-5">
                     <div class="info">
-                        <a class="logo" href="index.html"><img src="/img/logo.png" alt="Bushido" /></a>
+                        <a class="logo" href="index.html"><img src="/img/logo.png"/></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        <div class="social">
-                            <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-youtube-square"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-tumblr-square"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-pinterest-square"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a>
-                        </div>
+                        
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <h2>Latest news</h2>
-                    <ul class="list-unstyled">
-                        <li>25 May <a href="#">Nemo enim ipsam voluptatem</a></li>
-                        <li>01 May <a href="#">Neque porro quisquam est</a></li>
-                        <li>16 Apr <a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li>10 Jan <a href="#">Sed ut perspiciatis unde</a></li>
-                    </ul>
                 </div>
                 <div class="contacts col-lg-3 col-md-3 col-sm-3">
                     <h2>Contacts</h2>

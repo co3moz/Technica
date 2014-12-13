@@ -18,20 +18,6 @@ namespace Technica.Controllers
             return View();
         }
 
-        [Route("Cart/AddService/{id:int}/{quantity:int}")]
-        public ActionResult AddService(int id, int quantity)
-        {
-            Product product = db.Products.Find(id);
-            if (product != null)
-            {
-                List<Basket> basket = Session["basket"] as List<Basket>;
-                basket.Add(new Basket { product =   product, quantity = quantity });
-                return Content("ok");
-            }
-            return Content("Product not exists");
-        }
-
-
         [Route("Cart/Add/{id:int}/{quantity:int}")]
         public ActionResult Add(int id, int quantity)
         {
@@ -51,5 +37,19 @@ namespace Technica.Controllers
             }
         }
 
+        [Route("Cart/Remove/{id:int}")]
+        public ActionResult Remove(int id)
+        {
+            try
+            {
+                List<Basket> basket = Session["basket"] as List<Basket>;
+                basket.RemoveAt(id);
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
     }
 }

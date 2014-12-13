@@ -37,13 +37,7 @@
                 }
                 <div class="price">@String.Format("{0:0.0}", Model.Price / currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</div>
                 <div class="buttons group">
-                    <div class="qnt-count">
-                        <a class="incr-btn" href="#">-</a>
-                        <input id="quantity" class="form-control" type="text" value="1">
-                        <a class="incr-btn" href="#">+</a>
-                    </div>
-                    <input type="hidden" value="@Model.ID"/>
-                    <a class="btn btn-primary btn-sm" id="addItemToCart" ><i class="icon-shopping-cart"></i>Add to cart</a>
+                    <a class="btn btn-primary btn-sm" href="/Cart/Add/@Model.ID/1" ><i class="icon-shopping-cart"></i>Add to cart</a>
                     <a class="btn btn-success btn-sm" href="#"><i class="icon-heart"></i>Add to wishlist</a>
                 </div>
                 
