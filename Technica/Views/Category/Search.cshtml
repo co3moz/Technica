@@ -1,7 +1,5 @@
-﻿@model Technica.Models.Category
-
-@{
-    ViewBag.Title = "Details";
+﻿@{
+    ViewBag.Title = "Search";
     Technica.Models.Currency currency = (Session["currency"] as Technica.Models.Currency);
 }
 
@@ -12,7 +10,7 @@
 
 <section class="catalog-grid">
     <div class="container">
-        <h2 class="with-sorting">@Model.Name</h2>
+        <h2 class="with-sorting">Search results</h2>
         <div class="row">
             @{
                 foreach (Technica.Models.Product product in ViewBag.Products)

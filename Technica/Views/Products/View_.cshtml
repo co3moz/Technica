@@ -8,7 +8,6 @@
 
 <ol class="breadcrumb">
     <li><a href="/">Home</a></li>
-    <li><a href="/Products/All">Products</a></li>
     <li>Product</li>
 </ol>
 
@@ -43,7 +42,8 @@
                         <input id="quantity" class="form-control" type="text" value="1">
                         <a class="incr-btn" href="#">+</a>
                     </div>
-                    <a class="btn btn-primary btn-sm" id="addItemToCart" href="#"><i class="icon-shopping-cart"></i>Add to cart</a>
+                    <input type="hidden" value="@Model.ID"/>
+                    <a class="btn btn-primary btn-sm" id="addItemToCart" ><i class="icon-shopping-cart"></i>Add to cart</a>
                     <a class="btn btn-success btn-sm" href="#"><i class="icon-heart"></i>Add to wishlist</a>
                 </div>
                 

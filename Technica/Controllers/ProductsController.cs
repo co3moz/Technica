@@ -30,6 +30,10 @@ namespace Technica.Controllers
             
         }
 
+        
+
+
+
         // GET: Products
         public ActionResult Index()
         {

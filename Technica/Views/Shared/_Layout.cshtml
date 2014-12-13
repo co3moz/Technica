@@ -42,12 +42,12 @@
     </div>
 
     <header data-offset-top="500" data-stuck="600">
-        <form class="search-form closed" method="get" role="form" autocomplete="off">
+        <form class="search-form closed" method="post" role="form" autocomplete="off" action="/Category/Search">
             <div class="container">
                 <div class="close-search"><i class="icon-delete"></i></div>
                 <div class="form-group">
                     <label class="sr-only" for="search-hd">Search for procuct</label>
-                    <input type="text" class="form-control" name="search-hd" id="search-hd" placeholder="Search for procuct">
+                    <input type="text" class="form-control" name="search" placeholder="Search for procuct">
                     <button type="submit"><i class="icon-magnifier"></i></button>
                 </div>
             </div>
@@ -101,12 +101,14 @@
             <div class="toolbar group">
                 <button class="search-btn btn-outlined-invert"><i class="icon-magnifier"></i></button>
                 <div class="middle-btns">
-                    <a class="btn-outlined-invert" href="wishlist.html"><i class="icon-heart"></i> <span>Wishlist</span></a>
-                    @if (Session["user"] == null) { 
+                    @if (Session["user"] == null)
+                    {
+                        <a class="btn-outlined-invert" onclick="alert('First you should login to use wishlist')"><i class="icon-heart"></i> <span>Wishlist</span></a>
                         <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="icon-profile"></i> <span>Login</span></a>
                     }
                     else
                     {
+                        <a class="btn-outlined-invert" href="/Wishes"><i class="icon-heart"></i> <span>Wishlist</span></a>
                         <a class="login-btn btn-outlined-invert" href="#"><i class="icon-profile"></i> <span>Panel</span></a>
                     }
                 </div>
