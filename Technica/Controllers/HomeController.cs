@@ -34,7 +34,7 @@ namespace Technica.Controllers
             {
                 Session["currency"] = currency;
             }
-            return RedirectToAction("Index");
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         public ActionResult Language(int? id)

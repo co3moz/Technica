@@ -19,5 +19,8 @@ namespace Technica.Models
         public string Image { get; set; }
         public int SellCount { get; set; }
         public int Stock { get; set; }
+
+
+        public virtual ICollection<Wish> Wishes { get; set; }
     }
 }

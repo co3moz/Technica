@@ -13,9 +13,6 @@ namespace Technica.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int UserID { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string ActualAddress { get; set; }
-        public string ZipCode { get; set; }
+        public int ProductID { get; set; }
     }
 }

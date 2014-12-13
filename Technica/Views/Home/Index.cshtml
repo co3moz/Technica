@@ -1,59 +1,64 @@
 ﻿@{
     ViewBag.Title = "Index";
+    Technica.Models.Currency currency = (Session["currency"] as Technica.Models.Currency);
 }
 
 <section class="hero-slider">
     <div class="master-slider" id="hero-slider">
+        @{
+            decimal gtacost = 250/currency.Ratio;
+            decimal nikoncost = 2700 / currency.Ratio;
+            decimal lgcost = 2400 / currency.Ratio;
+        }
 
         <div class="ms-slide" data-delay="7">
             <div class="overlay"></div>
-            <img src="masterslider/blank.gif" data-src="img/nikon1.jpg" alt="Nikon D4S" />
+            <img src="masterslider/blank.gif" data-src="img/nikon1.jpg" />
             <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="top(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nikon D4S</h2>
-            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="back(500)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1845$</span>Buy it now</a></div>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="back(500)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Looks like a camera but more than a camera. It's a life style.. </p>
+            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="/Products/View/Nikon-D4S"><span>@String.Format("{0:0.0}", nikoncost).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</span>Buy it now</a></div>
         </div>
 
         <div class="ms-slide" data-delay="7">
             <span class="overlay"></span>
-            <img src="masterslider/blank.gif" data-src="img/hero/slideshow/slide_2.jpg" alt="Nest" />
-            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nest</h2>
-            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="rotatebottom(30|90,long,br,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1640$</span>Buy it now</a></div>
+            <img src="masterslider/blank.gif" data-src="img/gtav.jpg"/>
+            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">GTA V</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">This game picks you up to the stars. Gaming fun is incredible high. AI is so good.. You should try this..</p>
+            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="rotatebottom(30|90,long,br,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>@String.Format("{0:0.0}", gtacost).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</span>Buy it now</a></div>
         </div>
 
         <div class="ms-slide" data-delay="7">
             <div class="overlay"></div>
-            <img src="masterslider/blank.gif" data-src="img/hero/slideshow/slide_1.jpg" alt="3D Printer" />
-            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">3D Printer</h2>
-            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>2500$</span>Buy it now</a></div>
+            <img src="masterslider/blank.gif" data-src="img/LG.jpg"/>
+            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">SEG 32SD5150</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Just pick me.</p>
+            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>@String.Format("{0:0.0}", lgcost).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</span>Buy it now</a></div>
         </div>
 
     </div>
-</section><!--Hero Slider Close-->
-<!--Categories-->
+</section>
+
 <section class="cat-tiles">
     <div class="container">
         <h2>Browse categories</h2>
         <div class="row">
             @foreach (var category in ViewBag.Categories) {
             <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                <a href="#">
-                    <img src="img/categories/@category.Image" alt="1" />
+                <a href="/Category/View/@category.Name.Replace(' ', '-')">
+                    <img src="/img/categories/@category.Image" alt="1" />
                     <p>@category.Name</p>
                 </a>
             </div>
             }
         </div>
     </div>
-</section><!--Categories Close-->
-<!--Catalog Grid-->
+</section>
+
 <section class="catalog-grid">
     <div class="container">
         <h2 class="primary-color">Random Products</h2>
         <div class="row">
             @{
-                Technica.Models.Currency currency = (Session["currency"] as Technica.Models.Currency);
                 foreach (Technica.Models.Product product in ViewBag.RandomProducts)
                 {
                     decimal cost = product.Price / currency.Ratio;
@@ -65,7 +70,7 @@
                             decimal oldCost = (decimal)product.OldPrice / currency.Ratio;
                             <div class="price-label old-price">@String.Format("{0:0.0}", oldCost).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</div>
                         }
-                        <a href="#"><img  class="img-responsive" src="img/@product.Image" alt="1" /></a>
+                        <a href="/Products/View/@product.Name.Replace(' ', '-')"><img  class="img-responsive" src="img/@product.Image" alt="1" /></a>
                         <div class="footer">
                             <a href="#">@product.Name</a>
                             <div class="tools">

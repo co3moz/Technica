@@ -119,7 +119,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\GeneralFilter.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\TechnicaContext.cs" />
     <Compile Include="DAL\TechnicaInitializer.cs" />
@@ -230,12 +232,14 @@
     <Content Include="img\gallery-widget\4.jpg" />
     <Content Include="img\gallery-widget\5.jpg" />
     <Content Include="img\gallery-widget\th_1.jpg" />
+    <Content Include="img\gtav.jpg" />
     <Content Include="img\hero\banner_1.jpg" />
     <Content Include="img\hero\slideshow\slide_1.jpg" />
     <Content Include="img\hero\slideshow\slide_2.jpg" />
     <Content Include="img\info-blocks\1.jpg" />
     <Content Include="img\info-blocks\parallax-bg-img1.jpg" />
     <Content Include="img\info-blocks\parallax-bg-img2.jpg" />
+    <Content Include="img\LG.jpg" />
     <Content Include="img\loading.gif" />
     <Content Include="img\logo-dark.png" />
     <Content Include="img\logo.png" />
@@ -371,6 +375,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Users\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\View_.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\View_.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
