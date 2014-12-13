@@ -93,6 +93,45 @@ namespace Technica.Controllers
         }
 
 
+        public ActionResult Panel()
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(Session["user"]);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeService([Bind(Include = "Password,FirstName,LastName,Phone")] User user)
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            User u = Session["user"] as User;
+            u.Password = user.Password;
+            u.FirstName = user.FirstName;
+            u.LastName = user.LastName;
+            if (user.Password != null)
+            {
+                u.Phone = user.Phone;
+            }
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(u).State = EntityState.Modified;
+                db.SaveChanges();
+                return Content("ok");
+            }
+            return Content("Some problems appeared in ModelState");
+        }
+
+
         // GET: Users
         public ActionResult Index()
         {

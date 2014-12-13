@@ -687,6 +687,25 @@ var gallery = (function ($) {
         }
     });
 
+    $("#changeInfo").submit(function (event) {
+        event.preventDefault();
+
+        var p1 = $("#P1").val();
+        var p2 = $("#P2").val();
+
+        if (p1 == p2) {
+            $.post("/Users/ChangeService", $(this).formSerialize()).done(function (data) {
+                if (data == "ok") {
+                    window.location.href = "/Users/Panel";
+                } else {
+                    $("#changeResult").html(data);
+                }
+            });
+        } else {
+            $("#changeResult").html("Password didn't Match");
+        }
+    });
+
     return {
         init: init
     };

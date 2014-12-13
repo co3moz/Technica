@@ -37,7 +37,6 @@ namespace Technica.App_Start
             if (session["basket"] == null)
             {
                 List<Basket> basket = new List<Basket>();
-                basket.Add(new Basket { product = db.Products.First<Product>(), quantity = 1 });
                 session["basket"] = basket;
             }
 

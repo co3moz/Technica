@@ -46,8 +46,8 @@
             <div class="container">
                 <div class="close-search"><i class="icon-delete"></i></div>
                 <div class="form-group">
-                    <label class="sr-only" for="search-hd">Search for procuct</label>
-                    <input type="text" class="form-control" name="search" placeholder="Search for procuct">
+                    <label class="sr-only" for="search-hd">Search for product</label>
+                    <input type="text" class="form-control" name="search" placeholder="Search for product">
                     <button type="submit"><i class="icon-magnifier"></i></button>
                 </div>
             </div>
@@ -85,9 +85,6 @@
             <nav class="menu">
                 <ul class="main">
                     <li class="hide-sm">
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li class="hide-sm">
                         <a href="support.html">Support</a>
                     </li>
                 </ul>
@@ -108,12 +105,12 @@
                     }
                     else
                     {
-                        <a class="btn-outlined-invert" href="/Wishes"><i class="icon-heart"></i> <span>Wishlist</span></a>
-                        <a class="login-btn btn-outlined-invert" href="#"><i class="icon-profile"></i> <span>Panel</span></a>
+                        <a class="btn-outlined-invert" href="/Wish"><i class="icon-heart"></i> <span>Wishlist</span></a>
+                        <a class="login-btn btn-outlined-invert" href="/Users/Panel"><i class="icon-profile"></i> <span>Panel</span></a>
                     }
                 </div>
                 <div class="cart-btn">
-                    <a class="btn btn-outlined-invert" href="shopping-cart.html"><i class="icon-shopping-cart-content"></i><span>@Html.Raw((Session["basket"] as List<Technica.Models.Basket>).Count)</span></a>
+                    <a class="btn btn-outlined-invert" href="/Cart"><i class="icon-shopping-cart-content"></i><span>@Html.Raw((Session["basket"] as List<Technica.Models.Basket>).Count)</span></a>
 
                     <div class="cart-dropdown">
                         <span></span>
@@ -143,8 +140,8 @@
                         </div>
                         <div class="footer group">
                             <div class="buttons">
-                                <a class="btn btn-outlined-invert" href="checkout.html"><i class="icon-download"></i>Checkout</a>
-                                <a class="btn btn-outlined-invert" href="shopping-cart.html"><i class="icon-shopping-cart-content"></i>To cart</a>
+                                <a class="btn btn-outlined-invert" href="/Checkout"><i class="icon-download"></i>Checkout</a>
+                                <a class="btn btn-outlined-invert" href="/Cart"><i class="icon-shopping-cart-content"></i>To cart</a>
                             </div>
                             <div class="total">@String.Format("{0:0.0}", totalCost).Replace(",", ".") @MvcHtmlString.Create(@c.ShortName)</div>
                         </div>
@@ -182,16 +179,6 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
                         
                     </div>
-                </div>
-                <div class="contacts col-lg-3 col-md-3 col-sm-3">
-                    <h2>Contacts</h2>
-                    <p class="p-style3">
-                        4120 Lenox Avenue, New York, NY,<br />
-                        10035 76 Saint Nicholas Avenue<br />
-                        <a href="mailto:mail@bushido.com">mail@bushido.com</a><br />
-                        +48 543765234<br />
-                        +48 555 234 54 34<br />
-                    </p>
                 </div>
             </div>
             <div class="copyright">

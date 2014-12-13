@@ -37,11 +37,6 @@ namespace Technica.DAL
             context.Languages.Add(new Language { Name = "English", ShortName = "en", Culture = "en-US" });
             context.Languages.Add(new Language { Name = "Türkçe", ShortName = "tr", Culture = "tr-TR" });
 
-            context.Shippings.Add(new Shipping { Name = "No Shipping", Price = 0m, Active = true });
-            context.Shippings.Add(new Shipping { Name = "Aras Cargo", Price = 5m, Active=true });
-            context.Shippings.Add(new Shipping { Name = "MNG Cargo", Price = 8m, Active = true });
-            context.Shippings.Add(new Shipping { Name = "Yurtiçi Cargo", Price = 7m, Active = true });
-
             context.Products.Add(new Product { CategoryID = 1, Name = "Nikon D5100", Price = 1300m, Image = "product/d5100.jpg" });
             context.Products.Add(new Product { CategoryID = 1, Name = "Nikon D5300", Price = 2100m, Image = "product/d5300.jpg" });
             context.Products.Add(new Product { CategoryID = 4, Name = "XBox", Price = 750m, Image = "product/xbox.jpg" });
@@ -69,6 +64,8 @@ namespace Technica.DAL
             context.Products.Add(new Product { CategoryID = 6, Name = "PS4 ASSASSINS CREED UNITY", Price = 250m, Image = "product/acunity.jpg" });
             context.Products.Add(new Product { CategoryID = 6, Name = "PS3 FAR CRY 4", Price = 220m, Image = "product/ps3fc4.jpg" });
             context.Products.Add(new Product { CategoryID = 1, Name = "Nikon D4S", Price = 2700m, Image = "product/d4s.jpg" });
+
+            context.Wishes.Add(new Wish { ProductID = 3 });
 
             context.Addresses.Add(new Address { Country = "Turkey", City = "Sakarya", ZipCode = "54100"});
             context.Users.Add(new User { Email = "admin@admin.com", FirstName = "Admin", LastName = "istrator", LastAccessDate = DateTime.Now, RegistrationDate = DateTime.Now, Password = "admin", Phone = "555 444 33 22", Power=Power.Administrator });

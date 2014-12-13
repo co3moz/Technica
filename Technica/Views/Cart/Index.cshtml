@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Cart";
+    Technica.Models.Currency currency = (Session["currency"] as Technica.Models.Currency);
+}
+
+
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Wishlist</li>
+</ol>
+
+<section class="shopping-cart">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-9 col-md-9">
+                <h2 class="title">Cart</h2>
+                <table class="items-list">
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Product name</th>
+                        <th>Product price</th>
+                    </tr>
+                    @{
+                        int i = 0;
+                        decimal totalCost = 0; 
+                        foreach (Technica.Models.Basket item in (Session["basket"] as List<Technica.Models.Basket>))
+                        {
+                            totalCost += item.product.Price;
+                            <tr class="item first">
+                                <td class="thumb"><a href="shop-single-item-v1.html"><img src="img/@item.product.Image" /></a></td>
+                                <td class="name"><a href="shop-single-item-v1.html">@item.product.Name</a></td>
+                                <td class="price">@String.Format("{0:0.0}", item.product.Price / currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</td>
+                                <td class="delete"><a href="/Cart/Remove/@i"><i class="icon-delete"></i></a></td>
+                            </tr>
+                            i++;
+                        }}
+                </table>
+            </div>
+
+            <div class="col-lg-3 col-md-3">
+                <h3>Cart totals</h3>
+                <form class="cart-sidebar" method="post">
+                    <div class="cart-totals">
+                        <table>
+                            <tr>
+                                <td>Cart subtotal</td>
+                                <td class="total align-r">@String.Format("{0:0.0}", totalCost / currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</td>
+                            </tr>
+                            <tr class="devider">
+                                <td>Shipping</td>
+                                <td class="align-r">Free shipping</td>
+                            </tr>
+                            <tr>
+                                <td>Order total</td>
+                                <td class="total align-r">@String.Format("{0:0.0}", totalCost / currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</td>
+                            </tr>
+                        </table>
+                        <a class="btn btn-success btn-block" href="/Checkout">Proceed to checkout</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

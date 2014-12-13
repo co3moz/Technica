@@ -38,7 +38,10 @@
                 <div class="price">@String.Format("{0:0.0}", Model.Price / currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</div>
                 <div class="buttons group">
                     <a class="btn btn-primary btn-sm" href="/Cart/Add/@Model.ID/1" ><i class="icon-shopping-cart"></i>Add to cart</a>
-                    <a class="btn btn-success btn-sm" href="#"><i class="icon-heart"></i>Add to wishlist</a>
+                    @if (Session["user"] != null)
+                    {
+                        <a class="btn btn-success btn-sm" href="/Wish/Add/@Model.ID"><i class="icon-heart"></i>Add to wishlist</a>
+                    }
                 </div>
                 
                 <div class="row">
@@ -52,9 +55,9 @@
                     </div>
                 </div>
                 <div class="promo-labels">
-                    <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span><i class="fa fa-truck"></i>Fast delivery</span></div>
-                    <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-space-shuttle"></i>Deliver even on Mars</div>
-                    <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-shield"></i>Safe Buy</div>
+                    <div data-content="We have space shuttle..."><span><i class="fa fa-truck"></i>Fast delivery</span></div>
+                    <div data-content="Yeah also we have super safe box"><i class="fa fa-space-shuttle"></i>Deliver even on Mars</div>
+                    <div data-content="Buy me buy mee"><i class="fa fa-shield"></i>Safe Buy</div>
                 </div>
             </div>
         </div>

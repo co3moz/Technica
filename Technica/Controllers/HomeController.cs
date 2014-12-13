@@ -22,6 +22,11 @@ namespace Technica.Controllers
             return View();
         }
 
+        public ActionResult Support()
+        {
+            return View();
+        }
+        
         public ActionResult Currency(int? id)
         {
             if (id == null)

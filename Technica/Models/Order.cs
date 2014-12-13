@@ -17,7 +17,6 @@ namespace Technica.Models
         public decimal Price { get; set; }
         public int CurrencyID { get; set; }
 
-        public int ShippingID { get; set; }
         public DateTime Date { get; set; }
 
         public string JsonProducts { get; set; }
