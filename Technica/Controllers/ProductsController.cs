@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -108,6 +109,14 @@ namespace Technica.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            HttpPostedFileBase photo = Request.Files["photo"];
+
+            if (photo != null && photo.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(photo.FileName);
+                photo.SaveAs(Path.Combine(Server.MapPath("~") + "/img/upload/", fileName));
+                product.Image = Path.Combine("/upload/" ,fileName);
+            }
 
             if (ModelState.IsValid)
             {

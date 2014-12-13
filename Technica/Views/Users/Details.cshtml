@@ -4,71 +4,79 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<section>
+    <div class="container">
+        <div class="row space-top">
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <div class="col-sm-8 space-bottom">
+                <h2 class="title">Details</h2>
+                <div>
+                    <h4>User</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Password)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstName)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.LastName)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RegistrationDate)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.RegistrationDate)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.RegistrationDate)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.RegistrationDate)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastAccessDate)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastAccessDate)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastAccessDate)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.LastAccessDate)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cellphone)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cellphone)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Phone)
+                        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

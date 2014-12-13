@@ -59,7 +59,7 @@ namespace Technica.Controllers
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Success");
+                return RedirectToAction("View", "Orders");
             }
             return RedirectToAction("Index","Home");
         }

@@ -17,8 +17,6 @@ namespace Technica.Models
         public decimal Price { get; set; }
         public decimal? OldPrice { get; set; }
         public string Image { get; set; }
-        public int SellCount { get; set; }
-        public int Stock { get; set; }
 
 
         public virtual ICollection<Wish> Wishes { get; set; }

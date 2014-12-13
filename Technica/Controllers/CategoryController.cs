@@ -49,12 +49,32 @@ namespace Technica.Controllers
         // GET: Categories
         public ActionResult Index()
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(db.Categories.ToList());
         }
 
         // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -70,6 +90,17 @@ namespace Technica.Controllers
         // GET: Categories/Create
         public ActionResult Create()
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
             return View();
         }
 
@@ -80,6 +111,16 @@ namespace Technica.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Image")] Category category)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Categories.Add(category);
@@ -93,6 +134,16 @@ namespace Technica.Controllers
         // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -112,6 +163,16 @@ namespace Technica.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,Image")] Category category)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(category).State = EntityState.Modified;
@@ -124,6 +185,16 @@ namespace Technica.Controllers
         // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -141,6 +212,16 @@ namespace Technica.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             Category category = db.Categories.Find(id);
             db.Categories.Remove(category);
             db.SaveChanges();

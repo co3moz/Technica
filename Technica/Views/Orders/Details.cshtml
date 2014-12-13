@@ -3,96 +3,105 @@
 @{
     ViewBag.Title = "Details";
 }
+<section>
+    <div class="container">
+        <div class="row space-top">
 
-<h2>Details</h2>
+            <div class="col-sm-8 space-bottom">
+                <h2 class="title">Details</h2>
 
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserID)
-        </dt>
+                <div>
+                    <h4>Order</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UserID)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserID)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.UserID)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Price)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrencyID)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CurrencyID)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CurrencyID)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.CurrencyID)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Country)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Country)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.City)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.City)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ActualAddress)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ActualAddress)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ActualAddress)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.ActualAddress)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ZipCode)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.ZipCode)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Date)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Date)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JsonProducts)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.JsonProducts)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.JsonProducts)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.JsonProducts)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Notes)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Notes)
+                        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -35,12 +35,32 @@ namespace Technica.Controllers
 
         public ActionResult Index()
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(db.Orders.ToList());
         }
 
         // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -56,6 +76,16 @@ namespace Technica.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -66,6 +96,16 @@ namespace Technica.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,UserID,Price,CurrencyID,Country,City,ActualAddress,ZipCode,Date,JsonProducts,Notes")] Order order)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);
@@ -79,6 +119,16 @@ namespace Technica.Controllers
         // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -98,6 +148,16 @@ namespace Technica.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,UserID,Price,CurrencyID,Country,City,ActualAddress,ZipCode,Date,JsonProducts,Notes")] Order order)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(order).State = EntityState.Modified;
@@ -110,6 +170,16 @@ namespace Technica.Controllers
         // GET: Orders/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -127,6 +197,16 @@ namespace Technica.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             Order order = db.Orders.Find(id);
             db.Orders.Remove(order);
             db.SaveChanges();

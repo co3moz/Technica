@@ -103,6 +103,21 @@ namespace Technica.Controllers
             return View(Session["user"]);
         }
 
+        public ActionResult Admin()
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
