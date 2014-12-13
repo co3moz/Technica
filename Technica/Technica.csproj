@@ -119,6 +119,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\GeneralFilter.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -337,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -411,6 +413,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Category\View_.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\Search.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

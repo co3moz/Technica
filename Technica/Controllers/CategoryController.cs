@@ -31,6 +31,21 @@ namespace Technica.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult Search()
+        {
+            try
+            {
+                string[] keywords = Request["search"].Split(' ');
+                ViewBag.Products = db.Products.Where(q => keywords.Any(k => q.Name.Contains(k)));
+                return View();
+            }
+            catch
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
         // GET: Categories
         public ActionResult Index()
         {
