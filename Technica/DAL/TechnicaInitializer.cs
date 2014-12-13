@@ -65,9 +65,6 @@ namespace Technica.DAL
             context.Products.Add(new Product { CategoryID = 6, Name = "PS3 FAR CRY 4", Price = 220m, Image = "product/ps3fc4.jpg" });
             context.Products.Add(new Product { CategoryID = 1, Name = "Nikon D4S", Price = 2700m, Image = "product/d4s.jpg" });
 
-            context.Wishes.Add(new Wish { ProductID = 3 });
-
-            context.Addresses.Add(new Address { Country = "Turkey", City = "Sakarya", ZipCode = "54100"});
             context.Users.Add(new User { Email = "admin@admin.com", FirstName = "Admin", LastName = "istrator", LastAccessDate = DateTime.Now, RegistrationDate = DateTime.Now, Password = "admin", Phone = "555 444 33 22", Power=Power.Administrator });
         }
     }

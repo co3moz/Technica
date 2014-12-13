@@ -668,6 +668,18 @@ var gallery = (function ($) {
         });
     });
 
+    $("#loginForm2").submit(function (event) {
+        event.preventDefault();
+
+        $.post("/Users/LoginService", $(this).formSerialize()).done(function (data) {
+            if (data == "ok") {
+                location.reload();
+            } else {
+                $("#loginMessage").html(data);
+            }
+        });
+    });
+
     $("#registerForm").submit(function (event) {
         event.preventDefault();
 

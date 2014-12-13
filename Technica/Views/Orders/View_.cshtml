@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "View";
+}
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Orders</li>
+</ol>
+
+<section class="order-history extra-space-bottom">
+    <div class="container">
+        <h2 class="text-center-mobile">My orders</h2>
+        <div class="inner">
+            <table>
+                <tbody>
+                    <tr>
+                        <th scope="col">Order ID </th>
+                        <th scope="col">No. of items</th>
+                        <th scope="col">Total price</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Payment method </th>
+                        <th scope="col">Products</th>
+                    </tr>
+                    @foreach (Technica.Models.OrderCurrency order in ViewBag.Orders) {
+                    <tr>
+                        <td class="bold">@order.order.ID</td>
+                        <td>@order.order.Count</td>
+                        <td class="bold">@String.Format("{0:0.0}", order.order.Price).Replace(",", ".") @MvcHtmlString.Create(order.currency.ShortName)</td>
+                        <td>@order.order.Date</td>
+                        <td>Bank</td>
+                        <td>@{
+                                int t = 1;
+                                List<Technica.Models.Product> products = Newtonsoft.Json.JsonConvert.DeserializeObject <List<Technica.Models.Product>>(@order.order.JsonProducts);
+                                foreach (Technica.Models.Product p in products)
+                                {
+                                    @t <a href="/Products/View/@p.Name.Replace(' ', '-')">@p.Name</a> <br />
+                                    t++;
+                                }
+                            
+                            }</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

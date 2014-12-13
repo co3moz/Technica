@@ -11,7 +11,7 @@ namespace Technica.App_Start
 {
     public class GeneralFilter : ActionFilterAttribute
     {
-        private TechnicaContext db = new TechnicaContext();
+        private readonly TechnicaContext db = new TechnicaContext();
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -36,8 +36,7 @@ namespace Technica.App_Start
 
             if (session["basket"] == null)
             {
-                List<Basket> basket = new List<Basket>();
-                session["basket"] = basket;
+                session["basket"] = new List<Basket>();
             }
 
             base.OnActionExecuting(filterContext);

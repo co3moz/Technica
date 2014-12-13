@@ -28,7 +28,6 @@ namespace Technica.Models
         public string Phone { get; set; }
         public Power Power { get; set; }
 
-        public virtual ICollection<Address> Addresses { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Wish> Wishes { get; set; }
     }
