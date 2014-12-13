@@ -16,9 +16,12 @@
             <div class="col-sm-8 space-bottom">
                 <h2 class="title">My account</h2>
                 <ul class="list-unstyled space-bottom">
-                    <li><a class="large" href="/Adresses">My addresses</a></li>
-                    <li><a class="large" href="/Orders">Order history</a></li>
+                    <li><a class="large" href="/Orders/View">Order history</a></li>
                     <li><a class="large" href="/Wish">My wishlist</a></li>
+                    @if ((Session["user"] as Technica.Models.User).Power == Technica.Models.Power.Administrator)
+                    {
+                        <li><a class="large" href="/Users/Admin">Admin Panel</a></li>
+                    }
                 </ul>
                 <h3>Personal information</h3>
                 <p>Email can't change. If you really want to change mail. Contract to administrator</p>
