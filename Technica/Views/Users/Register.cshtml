@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Register</li>
+</ol>
+
+<section class="log-reg container">
+    <h2>Register</h2>
+    <div class="row">
+        <div class="col-lg-7 col-md-7 col-sm-7">
+            <form method="post" id="registerForm" >
+
+                @Html.AntiForgeryToken()
+
+
+                <div class="form-group group">
+                    <label for="rf-email">Email</label>
+                    <input type="email" class="form-control" name="Email"  placeholder="Enter email" required>
+                </div>
+                <div class="form-group group">
+                    <label for="rf-password">Password</label>
+                    <input type="password" class="form-control" name="Password" id="registerP1"  placeholder="Enter password" required>
+                </div>
+                <div class="form-group group">
+                    <label for="rf-password-repeat">Repeat password</label>
+                    <input type="password" class="form-control" id="registerP2" placeholder="Repeat password" required>
+                </div>
+                <div class="form-group group">
+                    <label for="rf-text">First Name</label>
+                    <input type="text" class="form-control" name="FirstName" placeholder="Enter first name" required>
+                </div>
+                <div class="form-group group">
+                    <label for="rf-text">Last Name</label>
+                    <input type="text" class="form-control" name="LastName" placeholder="Enter last name" required>
+                </div>
+                <div class="form-group group">
+                    <label for="rf-text">Phone Number</label>
+                    <input type="text" class="form-control" name="Phone" placeholder="Enter Phone Number" required>
+                </div>
+                <input class="btn btn-success" type="submit" value="Register">
+            </form>
+        </div>
+        <div id="registerResult">
+
+        </div>
+    </div>
+</section>

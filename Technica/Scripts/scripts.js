@@ -683,6 +683,25 @@ var gallery = (function ($) {
         });
     });
 
+    $("#registerForm").submit(function (event) {
+        event.preventDefault();
+
+        var p1 = $("#registerP1").val();
+        var p2 = $("#registerP2").val();
+
+        if (p1 == p2) {
+            $.post("/Users/RegisterService", $(this).formSerialize()).done(function (data) {
+                if (data == "ok") {
+                    window.location.href = "/";
+                } else {
+                    $("#registerResult").html(data);
+                }
+            });
+        } else {
+            $("#registerResult").html("Password didn't Match");
+        }
+    });
+
     return {
         init: init
     };

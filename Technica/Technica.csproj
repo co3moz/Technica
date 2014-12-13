@@ -268,6 +268,33 @@
     <Content Include="img\people\1.png" />
     <Content Include="img\posts-widget\1.jpg" />
     <Content Include="img\nikon1.jpg" />
+    <Content Include="img\product\acunity.jpg" />
+    <Content Include="img\product\ASUS N550JK.jpg" />
+    <Content Include="img\product\ASUS X553MA.jpg" />
+    <Content Include="img\product\asuszenphone5.jpg" />
+    <Content Include="img\product\CASPER CN-VSM4210X.jpg" />
+    <Content Include="img\product\CASPER VIA V5.jpg" />
+    <Content Include="img\product\CASPER VIA V8.jpg" />
+    <Content Include="img\product\d5100.jpg" />
+    <Content Include="img\product\d5300.jpg" />
+    <Content Include="img\product\General Mobile Discovery 2.jpg" />
+    <Content Include="img\product\HP 15-R103NT.jpg" />
+    <Content Include="img\product\HP 15-R113NT.jpg" />
+    <Content Include="img\product\IPHONE 6 16 GB.jpg" />
+    <Content Include="img\product\IPHONE5S16GB.jpg" />
+    <Content Include="img\product\LENOVO Z5070.jpg" />
+    <Content Include="img\product\PHILIPS 40PFK4009.jpg" />
+    <Content Include="img\product\ps3fc4.jpg" />
+    <Content Include="img\product\ps4.jpg" />
+    <Content Include="img\product\ps4gtav.jpg" />
+    <Content Include="img\product\SAMSUNGI8200.jpg" />
+    <Content Include="img\product\SAMSUNGI9060.jpg" />
+    <Content Include="img\product\SAMSUNGS5611.jpg" />
+    <Content Include="img\product\SAMSUNGS7580.jpg" />
+    <Content Include="img\product\SEG 32SD5150.jpg" />
+    <Content Include="img\product\SUNNY 42.jpg" />
+    <Content Include="img\product\wowwod.jpg" />
+    <Content Include="img\product\xbox.jpg" />
     <Content Include="Scripts\404.js" />
     <Content Include="Scripts\coming-soon.js" />
     <Content Include="Scripts\libs\jquery-1.11.1.min.js" />
@@ -337,6 +364,12 @@
   <ItemGroup>
     <Content Include="Content\masterslider\style\Thumbs.db" />
     <Content Include="Content\masterslider\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\product\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Users\Register.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

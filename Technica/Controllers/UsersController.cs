@@ -28,7 +28,14 @@ namespace Technica.Controllers
                     {
                         return Content("Wrong Password");
                     }
+                    userFind.LastAccessDate = DateTime.Now;
                     Session["user"] = userFind;
+
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(userFind).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
                     return Content("ok");
                 }
                 return Content("User not exists.");
@@ -46,6 +53,43 @@ namespace Technica.Controllers
 
             Session["user"] = null;
             return Content("ok");
+        }
+
+        public ActionResult Register()
+        {
+            if (Session["user"] == null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RegisterService([Bind(Include = "Email, Password, FirstName, LastName, Phone")] User user)
+        {
+            if (Session["user"] == null)
+            {
+                User userFind = db.Users.Where(u => u.Email == user.Email).SingleOrDefault();
+                if (userFind != null)
+                {
+                    return Content("This email has been taken.");
+                }
+
+                user.Power = Power.Normal;
+                user.LastAccessDate = user.RegistrationDate = DateTime.Now;
+
+                if (ModelState.IsValid)
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+
+                    return Content("ok");
+                }
+                return Content("Some problems appeared in ModelState");
+            }
+            return Content("Not legal..");
         }
 
 

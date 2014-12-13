@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.SqlServer;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -17,6 +18,7 @@ namespace Technica.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.RandomProducts = db.Products.OrderBy(x => Guid.NewGuid()).Take(8);
             return View();
         }
 
