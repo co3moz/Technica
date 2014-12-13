@@ -9,7 +9,7 @@ using Technica.Models;
 
 namespace Technica.DAL
 {
-    public class TechnicaInitializer : DropCreateDatabaseAlways<TechnicaContext>
+    public class TechnicaInitializer : DropCreateDatabaseIfModelChanges<TechnicaContext>
     {
         public override void InitializeDatabase(TechnicaContext context)
         {
@@ -37,6 +37,7 @@ namespace Technica.DAL
             context.Languages.Add(new Language { Name = "English", ShortName = "en", Culture = "en-US" });
             context.Languages.Add(new Language { Name = "Türkçe", ShortName = "tr", Culture = "tr-TR" });
 
+            context.Shippings.Add(new Shipping { Name = "No Shipping", Price = 0m, Active = true });
             context.Shippings.Add(new Shipping { Name = "Aras Cargo", Price = 5m, Active=true });
             context.Shippings.Add(new Shipping { Name = "MNG Cargo", Price = 8m, Active = true });
             context.Shippings.Add(new Shipping { Name = "Yurtiçi Cargo", Price = 7m, Active = true });

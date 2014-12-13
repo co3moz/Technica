@@ -18,7 +18,7 @@ namespace Technica.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet<Shipping> Shippings { get; set; }
         public DbSet<Language> Languages { get; set; }
-
+        public DbSet<Wish> Wishes { get; set; }
 
         public TechnicaContext()
             : base("TechnicaContext")
