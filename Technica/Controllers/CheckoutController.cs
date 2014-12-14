@@ -31,6 +31,10 @@ namespace Technica.Controllers
 
             User user = Session["user"] as User;
             List<Basket> basket = Session["basket"] as List<Basket>;
+            if (basket.Count == 0)
+            {
+                return RedirectToAction("Index", "Checkout");
+            }
 
             Order order = new Order();
             order.ActualAddress = Request["ActualAddress"];
@@ -41,6 +45,7 @@ namespace Technica.Controllers
             order.Date = DateTime.Now;
             order.ZipCode = Request["ZipCode"];
             order.UserID = user.ID;
+            order.Hidden = false;
 
             List<Product> products = new List<Product>();
 
@@ -50,6 +55,8 @@ namespace Technica.Controllers
                 money += b.product.Price;
                 products.Add(b.product);
             }
+
+            basket.Clear();
 
             order.Count = products.Count;
             order.Price = money;
@@ -62,11 +69,6 @@ namespace Technica.Controllers
                 return RedirectToAction("View", "Orders");
             }
             return RedirectToAction("Index","Home");
-        }
-
-        public ActionResult Success()
-        {
-            return View();
         }
     }
 }

@@ -43,6 +43,17 @@ namespace Technica.Controllers
             return Content("ok");
         }
 
+        public ActionResult Logout()
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            Session["user"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         public ActionResult LogoutService()
         {
@@ -208,7 +219,7 @@ namespace Technica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Email,Password,FirstName,LastName,RegistrationDate,LastAccessDate,Cellphone")] User user)
+        public ActionResult Create([Bind(Include = "ID,Email,Password,FirstName,LastName,RegistrationDate,LastAccessDate,Phone")] User user)
         {
             if (Session["user"] == null)
             {
@@ -260,7 +271,7 @@ namespace Technica.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Email,Password,FirstName,LastName,RegistrationDate,LastAccessDate,Cellphone")] User user)
+        public ActionResult Edit([Bind(Include = "ID,Email,Password,FirstName,LastName,RegistrationDate,LastAccessDate,Phone")] User user)
         {
             if (Session["user"] == null)
             {

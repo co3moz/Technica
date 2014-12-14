@@ -25,11 +25,11 @@
 
                         <div class="form-group group">
                             <label for="log-email">Email</label>
-                            <input type="email" class="form-control" name="Email" placeholder="Enter your email" required>
+                            <input type="email" class="form-control" name="Email" placeholder="Enter your email" required value="admin@admin.com">
                         </div>
                         <div class="form-group group">
                             <label for="log-password">Password</label>
-                            <input type="text" class="form-control" name="Password" id="log-password" placeholder="Enter your password" required>
+                            <input type="text" class="form-control" name="Password" id="log-password" placeholder="Enter your password" required value="admin">
                         </div>
                         <input class="btn btn-success" type="submit" value="Login">
                         <div id="loginMessage">
@@ -65,7 +65,7 @@
                     <ul class="dropdown">
                         @foreach (var currency in ViewBag.Currencies)
                         {
-                            <li><a href="/Home/Currency/@currency.ID">@MvcHtmlString.Create(currency.ShortName)</a></li>
+                            <li><a href="/Currencies/Currency/@currency.ID">@MvcHtmlString.Create(currency.ShortName)</a></li>
                         }
                     </ul>
                 </li>

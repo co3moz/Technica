@@ -26,21 +26,7 @@ namespace Technica.Controllers
         {
             return View();
         }
-        
-        public ActionResult Currency(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
-            Currency currency = db.Currencies.Find(id);
-            if (currency != null)
-            {
-                Session["currency"] = currency;
-            }
-            return Redirect(Request.UrlReferrer.ToString());
-        }
 
         public ActionResult Language(int? id)
         {

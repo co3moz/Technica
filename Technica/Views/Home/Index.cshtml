@@ -45,7 +45,7 @@
             @foreach (var category in ViewBag.Categories) {
             <div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
                 <a href="/Category/View/@category.Name.Replace(' ', '-')">
-                    <img src="/img/categories/@category.Image" alt="1" />
+                    <img src="/img/@category.Image" alt="1" />
                     <p>@category.Name</p>
                 </a>
             </div>

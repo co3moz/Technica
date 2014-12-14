@@ -18,13 +18,13 @@
                         <th scope="col">Total price</th>
                         <th scope="col">Date</th>
                         <th scope="col">Payment method </th>
-                        <th scope="col">Products</th>
+                        <th scope="col" style="width: 40%;">Products</th>
                     </tr>
                     @foreach (Technica.Models.OrderCurrency order in ViewBag.Orders) {
                     <tr>
                         <td class="bold">@order.order.ID</td>
                         <td>@order.order.Count</td>
-                        <td class="bold">@String.Format("{0:0.0}", order.order.Price).Replace(",", ".") @MvcHtmlString.Create(order.currency.ShortName)</td>
+                        <td class="bold">@String.Format("{0:0.0}", order.order.Price/order.currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(order.currency.ShortName)</td>
                         <td>@order.order.Date</td>
                         <td>Bank</td>
                         <td>@{

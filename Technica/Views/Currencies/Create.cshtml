@@ -1,24 +1,22 @@
-﻿@model Technica.Models.Category
+﻿@model Technica.Models.Currency
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
 <section>
     <div class="container">
         <div class="row space-top">
 
             <div class="col-sm-8 space-bottom">
-                <h2 class="title">Edit</h2>
-                @using (Html.BeginForm( null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                <h2 class="title">Create</h2>
+                @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
 
                     <div class="form-horizontal">
-                        <h4>Category</h4>
+                        <h4>Currency</h4>
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.HiddenFor(model => model.ID)
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
@@ -28,15 +26,24 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.ShortName, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                <input type="file" name="photo" id="photo" />
+                                @Html.EditorFor(model => model.ShortName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ShortName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Ratio, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Ratio, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Ratio, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Save" class="btn btn-default" />
+                                <input type="submit" value="Create" class="btn btn-default" />
                             </div>
                         </div>
                     </div>

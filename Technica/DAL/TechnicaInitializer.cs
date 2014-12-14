@@ -9,7 +9,7 @@ using Technica.Models;
 
 namespace Technica.DAL
 {
-    public class TechnicaInitializer : DropCreateDatabaseAlways<TechnicaContext>
+    public class TechnicaInitializer : DropCreateDatabaseIfModelChanges<TechnicaContext>
     {
         public override void InitializeDatabase(TechnicaContext context)
         {
@@ -22,17 +22,17 @@ namespace Technica.DAL
 
             Debug.WriteLine("Technica Initializing..");
 
-            context.Categories.Add(new Category { Name = "Camera", Image="camera.jpg" });
-            context.Categories.Add(new Category { Name = "Phone", Image = "phone.jpg" });
-            context.Categories.Add(new Category { Name = "Computer", Image = "computer.jpg" });
-            context.Categories.Add(new Category { Name = "Console", Image = "console.jpg" });
-            context.Categories.Add(new Category { Name = "Television", Image = "television.jpg" });
-            context.Categories.Add(new Category { Name = "Games", Image = "games.jpg" });
+            context.Categories.Add(new Category { Name = "Camera", Image = "categories/camera.jpg" });
+            context.Categories.Add(new Category { Name = "Phone", Image = "categories/phone.jpg" });
+            context.Categories.Add(new Category { Name = "Computer", Image = "categories/computer.jpg" });
+            context.Categories.Add(new Category { Name = "Console", Image = "categories/console.jpg" });
+            context.Categories.Add(new Category { Name = "Television", Image = "categories/television.jpg" });
+            context.Categories.Add(new Category { Name = "Games", Image = "categories/games.jpg" });
 
-            context.Currencies.Add(new Currency { Name="Dollar", ShortName="&dollar;", Ratio=2.12m, Culture="en-US"});
-            context.Currencies.Add(new Currency { Name = "Türk Lirası", ShortName = "&#8378;", Ratio = 1m, Culture = "tr-TR" });
-            context.Currencies.Add(new Currency { Name="Euro", ShortName="&euro;", Ratio=2.88m, Culture="de-DE"});
-            context.Currencies.Add(new Currency { Name="Pound", ShortName="&pound;", Ratio=3.75m, Culture="en-GB"});
+            context.Currencies.Add(new Currency { Name="Dollar", ShortName="&dollar;", Ratio=2.12m});
+            context.Currencies.Add(new Currency { Name = "Türk Lirası", ShortName = "&#8378;", Ratio = 1m });
+            context.Currencies.Add(new Currency { Name="Euro", ShortName="&euro;", Ratio=2.88m});
+            context.Currencies.Add(new Currency { Name="Pound", ShortName="&pound;", Ratio=3.75m});
 
             context.Languages.Add(new Language { Name = "English", ShortName = "en", Culture = "en-US" });
             context.Languages.Add(new Language { Name = "Türkçe", ShortName = "tr", Culture = "tr-TR" });

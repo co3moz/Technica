@@ -14,7 +14,6 @@ namespace Technica.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public string Culture { get; set; }
         public decimal Ratio { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }

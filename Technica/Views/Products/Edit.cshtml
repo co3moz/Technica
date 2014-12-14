@@ -9,8 +9,8 @@
 
             <div class="col-sm-8 space-bottom">
                 <h2 class="title">Edit</h2>
-                @using (Html.BeginForm())
-                {
+               @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+               {
                     @Html.AntiForgeryToken()
 
                     <div class="form-horizontal">
@@ -22,8 +22,23 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.CategoryID, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                                <select name="CategoryID">
+                                    @{
+                                        foreach (Technica.Models.Category category in ViewBag.Categories)
+                                        {
+                                            if (Model.CategoryID == category.ID)
+                                            {
+                                                <option value="@category.ID" selected>@category.Name</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@category.ID">@category.Name</option>
+                                            }
+
+                                        }
+                                    }
+                                </select>
+
                             </div>
                         </div>
 
@@ -54,8 +69,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                <input type="file" name="photo" id="photo" />
                             </div>
                         </div>
 

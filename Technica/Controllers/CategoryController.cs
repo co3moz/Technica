@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -14,6 +15,7 @@ namespace Technica.Controllers
     public class CategoryController : Controller
     {
         private TechnicaContext db = new TechnicaContext();
+
 
         [Route("Category/View/{id}")]
         public ActionResult View_(string id)
@@ -31,6 +33,7 @@ namespace Technica.Controllers
 
         }
 
+
         [HttpPost]
         public ActionResult Search()
         {
@@ -46,7 +49,7 @@ namespace Technica.Controllers
             }
         }
 
-        // GET: Categories
+
         public ActionResult Index()
         {
             if (Session["user"] == null)
@@ -62,32 +65,7 @@ namespace Technica.Controllers
             return View(db.Categories.ToList());
         }
 
-        // GET: Categories/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (Session["user"] == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
 
-            if ((Session["user"] as User).Power == Power.Normal)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
-        }
-
-        // GET: Categories/Create
         public ActionResult Create()
         {
             if (Session["user"] == null)
@@ -104,12 +82,10 @@ namespace Technica.Controllers
             return View();
         }
 
-        // POST: Categories/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Image")] Category category)
+        public ActionResult Create([Bind(Include = "ID,Name")] Category category)
         {
             if (Session["user"] == null)
             {
@@ -119,6 +95,15 @@ namespace Technica.Controllers
             if ((Session["user"] as User).Power == Power.Normal)
             {
                 return RedirectToAction("Index", "Home");
+            }
+
+            HttpPostedFileBase photo = Request.Files["photo"];
+
+            if (photo != null && photo.ContentLength > 0)
+            {
+                string fileName = new Random().Next(100000000, 999999999) + Path.GetFileName(photo.FileName);
+                photo.SaveAs(Path.Combine(Server.MapPath("~") + "/img/upload/", fileName));
+                category.Image = Path.Combine("upload/", fileName);
             }
 
             if (ModelState.IsValid)
@@ -131,7 +116,7 @@ namespace Technica.Controllers
             return View(category);
         }
 
-        // GET: Categories/Edit/5
+
         public ActionResult Edit(int? id)
         {
             if (Session["user"] == null)
@@ -156,12 +141,10 @@ namespace Technica.Controllers
             return View(category);
         }
 
-        // POST: Categories/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Image")] Category category)
+        public ActionResult Edit([Bind(Include = "ID,Name")] Category category)
         {
             if (Session["user"] == null)
             {
@@ -173,6 +156,15 @@ namespace Technica.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            HttpPostedFileBase photo = Request.Files["photo"];
+
+            if (photo != null && photo.ContentLength > 0)
+            {
+                string fileName = new Random().Next(100000000, 999999999)  + Path.GetFileName(photo.FileName);
+                photo.SaveAs(Path.Combine(Server.MapPath("~") + "/img/upload/", fileName));
+                category.Image = Path.Combine("upload/", fileName);
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(category).State = EntityState.Modified;
@@ -182,7 +174,7 @@ namespace Technica.Controllers
             return View(category);
         }
 
-        // GET: Categories/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if (Session["user"] == null)
@@ -207,7 +199,7 @@ namespace Technica.Controllers
             return View(category);
         }
 
-        // POST: Categories/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

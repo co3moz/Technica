@@ -39,10 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -122,6 +124,8 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CurrenciesController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -387,9 +391,6 @@
     <Content Include="Views\Products\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Products\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Products\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -403,9 +404,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Category\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Category\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Category\Edit.cshtml" />
@@ -435,19 +433,10 @@
     <Content Include="Views\Checkout\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Checkout\Success.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Orders\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Orders\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Orders\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Orders\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Orders\Index.cshtml" />
@@ -457,6 +446,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Users\Admin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Currencies\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Currencies\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Currencies\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Currencies\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Currencies\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\A0A.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

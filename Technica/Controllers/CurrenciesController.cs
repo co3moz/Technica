@@ -11,25 +11,23 @@ using Technica.Models;
 
 namespace Technica.Controllers
 {
-    public class OrdersController : Controller
+    public class CurrenciesController : Controller
     {
         private TechnicaContext db = new TechnicaContext();
 
-        [Route("Orders/View")]
-        public ActionResult View_()
+        public ActionResult Currency(int? id)
         {
-            if (Session["user"] == null)
+            if (id == null)
             {
-                return RedirectToAction("Index", "Home");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            User user = Session["user"] as User;
-
-            ViewBag.Orders = (from o in db.Orders
-                              join c in db.Currencies on o.CurrencyID equals c.ID
-                              where o.UserID == user.ID
-                              select new OrderCurrency { order = o, currency = c });
-            return View();
+            Currency currency = db.Currencies.Find(id);
+            if (currency != null)
+            {
+                Session["currency"] = currency;
+            }
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
 
@@ -44,32 +42,8 @@ namespace Technica.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.Users = db.Users;
-            ViewBag.Hidden = true;
-            ViewBag.Orders = (from o in db.Orders
-                              join c in db.Currencies on o.CurrencyID equals c.ID
-                              where o.Hidden == false
-                              select new OrderCurrency { order = o, currency = c });
-            return View();
-        }
 
-        public ActionResult All()
-        {
-            if (Session["user"] == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if ((Session["user"] as User).Power == Power.Normal)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            ViewBag.Users = db.Users;
-            ViewBag.Hidden = false;
-            ViewBag.Orders = (from o in db.Orders
-                              join c in db.Currencies on o.CurrencyID equals c.ID
-                              select new OrderCurrency { order = o, currency = c });
-            return View("Index");
+            return View(db.Currencies.ToList());
         }
 
 
@@ -89,18 +63,102 @@ namespace Technica.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderCurrency order = (from o in db.Orders
-                          join c in db.Currencies on o.CurrencyID equals c.ID
-                          where o.ID == id
-                          select new OrderCurrency { order = o, currency = c }).First<OrderCurrency>();
-
-            if (order == null)
+            Currency currency = db.Currencies.Find(id);
+            if (currency == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Users = db.Users;
-           
-            return View(order);
+            return View(currency);
+        }
+
+
+        public ActionResult Create()
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ID,Name,ShortName,Ratio")] Currency currency)
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                db.Currencies.Add(currency);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(currency);
+        }
+
+
+        public ActionResult Edit(int? id)
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Currency currency = db.Currencies.Find(id);
+            if (currency == null)
+            {
+                return HttpNotFound();
+            }
+            return View(currency);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ID,Name,ShortName,Ratio")] Currency currency)
+        {
+            if (Session["user"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if ((Session["user"] as User).Power == Power.Normal)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(currency).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(currency);
         }
 
 
@@ -120,63 +178,12 @@ namespace Technica.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderCurrency order = (from o in db.Orders
-                                   join c in db.Currencies on o.CurrencyID equals c.ID
-                                   where o.ID == id
-                                   select new OrderCurrency { order = o, currency = c }).First<OrderCurrency>();
-
-            if (order == null)
+            Currency currency = db.Currencies.Find(id);
+            if (currency == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Users = db.Users;
-            return View(order);
-        }
-
-        public ActionResult Hide(int? id)
-        {
-            if (Session["user"] == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if ((Session["user"] as User).Power == Power.Normal)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            order.Hidden = true;
-
-            db.SaveChanges();
-            return Redirect(Request.UrlReferrer.ToString());
-        }
-
-        public ActionResult Show(int? id)
-        {
-            if (Session["user"] == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if ((Session["user"] as User).Power == Power.Normal)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
-            order.Hidden = false;
-
-            db.SaveChanges();
-            return Redirect(Request.UrlReferrer.ToString());
+            return View(currency);
         }
 
 
@@ -194,8 +201,8 @@ namespace Technica.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
+            Currency currency = db.Currencies.Find(id);
+            db.Currencies.Remove(currency);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

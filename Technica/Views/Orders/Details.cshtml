@@ -1,7 +1,8 @@
-﻿@model Technica.Models.Order
+﻿@model Technica.Models.OrderCurrency
 
 @{
     ViewBag.Title = "Details";
+    var u = ViewBag.Users;
 }
 <section>
     <div class="container">
@@ -15,89 +16,94 @@
                     <hr />
                     <dl class="dl-horizontal">
                         <dt>
-                            @Html.DisplayNameFor(model => model.UserID)
+                            User
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.UserID)
+                            @{
+                                Technica.Models.User user = u.Find(Model.order.UserID);
+                                @user.FirstName <b></b> @user.LastName
+                                <br />
+                                @user.Email
+                            }
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Price)
+                            Price
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Price)
+                            @String.Format("{0:0.0}", Model.order.Price / Model.currency.Ratio).Replace(",", ".")@MvcHtmlString.Create(Model.currency.ShortName)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.CurrencyID)
+                            Country
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.CurrencyID)
+                            @Html.DisplayFor(model => model.order.Country)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Country)
+                            City
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Country)
+                            @Html.DisplayFor(model => model.order.City)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.City)
+                            ActualAddress
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.City)
+                            @Html.DisplayFor(model => model.order.ActualAddress)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.ActualAddress)
+                            ZipCode
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.ActualAddress)
+                            @Html.DisplayFor(model => model.order.ZipCode)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.ZipCode)
+                            Date
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.ZipCode)
+                            @Html.DisplayFor(model => model.order.Date)
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Date)
+                            Products
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Date)
+                            @{
+                                int t = 1;
+                                List<Technica.Models.Product> products = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Technica.Models.Product>>(Model.order.JsonProducts);
+                                foreach (Technica.Models.Product p in products)
+                                {
+                                    @t <a href="/Products/View/@p.Name.Replace(' ', '-')">@p.Name</a> <br />
+                                    t++;
+                                }
+
+                            }
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.JsonProducts)
+                            Notes
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.JsonProducts)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Notes)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Notes)
+                            @Html.DisplayFor(model => model.order.Notes)
                         </dd>
 
                     </dl>
                 </div>
                 <p>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
                     @Html.ActionLink("Back to List", "Index")
                 </p>
 

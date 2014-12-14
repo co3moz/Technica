@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Technica.Models.Order>
-
+﻿
 @{
     ViewBag.Title = "Index";
+    var u = ViewBag.Users;
 }
 <section>
     <div class="container">
@@ -10,89 +10,80 @@
             <div class="col-sm-8 space-bottom">
                 <h2 class="title">Index</h2>
 
-                <p>
-                    @Html.ActionLink("Create New", "Create")
-                </p>
                 <table class="table">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.UserID)
+                            User
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Price)
+                            Price
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.CurrencyID)
+                            Date
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Country)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.City)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ActualAddress)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ZipCode)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Date)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.JsonProducts)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Notes)
+                            Products
                         </th>
                         <th></th>
                     </tr>
 
-                    @foreach (var item in Model)
+                    @foreach (Technica.Models.OrderCurrency item in ViewBag.Orders)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.UserID)
+                                @{
+                                    Technica.Models.User user = u.Find(item.order.UserID);
+                                    @user.FirstName <b></b> @user.LastName
+                                    <br />
+                                    @user.Email
+                                }
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Price)
+                                @String.Format("{0:0.0}", item.order.Price / item.currency.Ratio).Replace(",", ".")@MvcHtmlString.Create(item.currency.ShortName)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.CurrencyID)
+                                @Html.DisplayFor(modelItem => item.order.Date)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Country)
-                            </td>
+                                @{
+                                    int t = 1;
+                                    List<Technica.Models.Product> products = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Technica.Models.Product>>(item.order.JsonProducts);
+                                    foreach (Technica.Models.Product p in products)
+                                    {
+                                        @t <a href="/Products/View/@p.Name.Replace(' ', '-')">@p.Name</a> <br />
+                                        t++;
+                                    }   
+
+                                 }
+                        </td>
+
                             <td>
-                                @Html.DisplayFor(modelItem => item.City)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ActualAddress)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ZipCode)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Date)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.JsonProducts)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Notes)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                @if (item.order.Hidden == true)
+                                {
+                                    @Html.ActionLink("Show", "Show", new { id = item.order.ID });
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Hide", "Hide", new { id = item.order.ID });
+                                }
+                                @Html.ActionLink("Details", "Details", new { id = item.order.ID })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.order.ID })
                             </td>
                         </tr>
                     }
 
                 </table>
-                <div>
+                <p>
+                    @if (ViewBag.Hidden == true) {
+                        @Html.ActionLink("All Orders", "All")
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Only viewable ones", "Index")
+                    }
+                    |
                     @Html.ActionLink("Back to panel", "Admin", "Users")
-                </div>
+                </p>
             </div>
         </div>
     </div>
