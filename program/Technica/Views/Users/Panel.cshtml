@@ -1,0 +1,75 @@
+﻿@model Technica.Models.User
+
+@{
+    ViewBag.Title = "Panel";
+}
+
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Account: Personal info</li>
+</ol>
+
+<section>
+    <div class="container">
+        <div class="row space-top">
+
+            <div class="col-sm-8 space-bottom">
+                <h2 class="title">My account</h2>
+                <ul class="list-unstyled space-bottom">
+                    <li><a class="large" href="/Orders/View">Order history</a></li>
+                    <li><a class="large" href="/Wish">My wishlist</a></li>
+                    @if ((Session["user"] as Technica.Models.User).Power == Technica.Models.Power.Administrator)
+                    {
+                        <li><a class="large" href="/Users/Admin">Admin Panel</a></li>
+                    }
+
+                    <li><a class="large" href="/Users/Logout">Log out</a></li>
+                </ul>
+                <h3>Personal information</h3>
+                <p>Email can't change. If you really want to change mail. Contract to administrator</p>
+                <div class="row">
+                    <form class="col-md-12 personal-info" id="changeInfo" method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="api_first_name">First name</label>
+                                <input type="text" class="form-control" name="FirstName" placeholder="First name" required value="@Model.FirstName">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="api_last_name">Last name</label>
+                                <input type="text" class="form-control" name="LastName" placeholder="Last name" required value="@Model.LastName">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="api_email">Email</label>
+                                <input type="email" class="form-control" placeholder="Email" required readonly value="@Model.Email">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="api_phone">Phone</label>
+                                <input type="text" class="form-control" name="Phone" placeholder="Phone" required value="@Model.Phone">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="api_password">Password</label>
+                                <input type="password" class="form-control" name="Password" id="P1" placeholder="Password" required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="api_conf_password">Confirm password</label>
+                                <input type="password" class="form-control" id="P2" placeholder="Confirm password" required>
+                            </div>
+                        </div>
+                        
+                        <input type="submit" class="btn btn-success" value="Save changes">
+                    </form>
+                    <div id="changeResult">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

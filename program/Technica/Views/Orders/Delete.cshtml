@@ -1,0 +1,123 @@
+﻿@model Technica.Models.OrderCurrency
+
+@{
+    ViewBag.Title = "Delete";
+    var u = ViewBag.Users;
+}
+
+<section>
+    <div class="container">
+        <div class="row space-top">
+
+            <div class="col-sm-8 space-bottom">
+                <h2 class="title">Delete</h2>
+
+                <h3>Are you sure you want to delete this?</h3>
+
+                <div>
+                    <h4>Order</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            User
+                        </dt>
+
+                        <dd>
+                            @{
+                                Technica.Models.User user = u.Find(Model.order.UserID);
+                                @user.FirstName <b></b> @user.LastName
+                                <br />
+                                @user.Email
+                            }
+                        </dd>
+
+                        <dt>
+                            Price
+                        </dt>
+
+                        <dd>
+                            @String.Format("{0:0.0}", Model.order.Price / Model.currency.Ratio).Replace(",", ".")@MvcHtmlString.Create(Model.currency.ShortName)
+                        </dd>
+
+                        <dt>
+                            Country
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.order.Country)
+                        </dd>
+
+                        <dt>
+                            City
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.order.City)
+                        </dd>
+
+                        <dt>
+                            ActualAddress
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.order.ActualAddress)
+                        </dd>
+
+                        <dt>
+                            ZipCode
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.order.ZipCode)
+                        </dd>
+
+                        <dt>
+                            Date
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.order.Date)
+                        </dd>
+
+                        <dt>
+                            Products
+                        </dt>
+
+                        <dd>
+                            @{
+                                int t = 1;
+                                List<Technica.Models.Product> products = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Technica.Models.Product>>(Model.order.JsonProducts);
+                                foreach (Technica.Models.Product p in products)
+                                {
+                                    @t <a href="/Products/View/@p.Name.Replace(' ', '-')">@p.Name</a> <br />
+                                    t++;
+                                }
+
+                            }
+                        </dd>
+
+                        <dt>
+                            Notes
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.order.Notes)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

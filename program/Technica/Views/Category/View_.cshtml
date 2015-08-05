@@ -1,0 +1,50 @@
+﻿@model Technica.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Technica.Models.Currency currency = (Session["currency"] as Technica.Models.Currency);
+}
+
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Category</li>
+</ol>
+
+<section class="catalog-grid">
+    <div class="container">
+        <h2 class="with-sorting">@Model.Name</h2>
+        <div class="row">
+            @{
+                foreach (Technica.Models.Product product in ViewBag.Products)
+                {
+                    decimal cost = product.Price / currency.Ratio;
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="tile">
+                            <div class="price-label">@String.Format("{0:0.0}", cost).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</div>
+                            @if (product.OldPrice != null)
+                            {
+                                decimal oldCost = (decimal)product.OldPrice / currency.Ratio;
+                                <div class="price-label old-price">@String.Format("{0:0.0}", oldCost).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</div>
+                            }
+                            <a href="/Products/View/@product.Name.Replace(' ', '-')"><img class="img-responsive" src="/img/@product.Image" alt="1" /></a>
+                            <div class="footer">
+                                <a href="#">@product.Name</a>
+                                <div class="tools">
+                                    <a class="add-cart-btn" href="/Cart/Add/@product.ID/1"><span>To cart</span><i class="icon-shopping-cart"></i></a>
+
+                                    @if (Session["user"] != null)
+                                    {
+                                        <a class="wishlist-btn" href="/Wish/Add/@product.ID" style="right: auto;left: 10px;">
+                                            <div class="hover-state" style="left: -7px;">Wishlist</div>
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>

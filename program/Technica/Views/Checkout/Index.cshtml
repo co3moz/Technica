@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Checkout";
+    Technica.Models.Currency currency = (Session["currency"] as Technica.Models.Currency);
+}
+
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li>Checkout</li>
+</ol>
+
+<section class="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Checkout</h2>
+                @if (Session["user"] == null) {
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7 col-sm-7">
+                                <form class="login-form" id="loginForm2" method="post" action="/Users/LoginService">
+
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-group group">
+                                        <label for="log-email">Email</label>
+                                        <input type="email" class="form-control" name="Email" placeholder="Enter your email" required>
+                                    </div>
+                                    <div class="form-group group">
+                                        <label for="log-password">Password</label>
+                                        <input type="text" class="form-control" name="Password" id="log-password" placeholder="Enter your password" required>
+                                    </div>
+                                    <input class="btn btn-success" type="submit" value="Login">
+                                    <div id="loginMessage">
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <form id="checkout-form" method="post" action="/Checkout">
+
+                @Html.AntiForgeryToken()
+
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h3>Billing adress</h3>
+                    <div class="form-group">
+                        <label for="co-country">Country *</label>
+                        <div class="select-style">
+                            <select name="Country" id="co-country">
+                                <option>Turkey</option>
+                                <option>Belgium</option>
+                                <option>Germany</option>
+                                <option>United Kingdom</option>
+                                <option>Switzerland</option>
+                                <option>USA</option>
+                            </select>
+                        </div>
+                    </div>  
+                    <div class="form-group">
+                        <label for="co-str-adress">Adress *</label>
+                        <input type="text" class="form-control" name="ActualAddress" placeholder="Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="co-city">City *</label>
+                        <input type="text" class="form-control" name="City" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="co_postcode">Postcode *</label>
+                        <input type="text" class="form-control" name="ZipCode" placeholder="Postcode" required>
+                    </div>
+                    <h3>Order notes</h3>
+                    <div class="form-group">
+                        <label class="sr-only" for="order-notes">Order notes</label>
+                        <textarea class="form-control" name="Notes" rows="4" placeholder="Order notes"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-lg-offset-1 col-md-4 col-sm-4">
+                    <h3>Your order</h3>
+                    <table>
+                        <tr><th>Product</th></tr>
+                        @{
+                            int i = 0;
+                            decimal totalCost = 0;
+                            foreach (Technica.Models.Basket item in (Session["basket"] as List<Technica.Models.Basket>))
+                            {
+                                totalCost += item.product.Price;    
+                        
+                        <tr>
+                            <td class="name border">@item.product.Name</td>
+                            <td class="price border">@String.Format("{0:0.0}", item.product.Price / currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</td>
+                        </tr>
+                        }}
+                        <tr>
+                            <td class="th border">Shipping</td>
+                            <td class="align-r border">Free shipping</td>
+                        </tr>
+                        <tr>
+                            <td class="th">Order total</td>
+                            <td class="price">@String.Format("{0:0.0}", totalCost / currency.Ratio).Replace(",", ".") @MvcHtmlString.Create(currency.ShortName)</td>
+                        </tr>
+                    </table>
+                    <div class="payment-method">
+                        <div class="radio light">
+                            <label><input type="radio" name="payment" id="payment01" checked> Direct Bank Transfer</label>
+                        </div>
+                        <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                        <div class="radio light">
+                            <label><input type="radio" name="payment" id="payment02" disabled> <s>Cheque Payment</s></label>
+                        </div>
+                        <div class="radio light">
+                            <label><input type="radio" name="payment" id="payment03" disabled> <s>PayPal</s> <span class="pp-label"></span></label>
+                        </div>
+                    </div>
+                    @if (Session["user"] == null) {
+                        <a class="btn btn-success btn-block" onclick="alert('Please Login First');">
+                            Place order  
+                        </a>
+                    }
+                    else
+                    {
+                        <input class="btn btn-success btn-block" type="submit" name="place-order" value="Place order">
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</section> 
